@@ -12,10 +12,14 @@ app.use(express.json());
 
 
 //MIDDLEWARES
-app.use(morgan('tiny'));
-app.use(cors());
-app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('tiny')); //HTTP REQUEST LOGGER
+app.use(cors()); //CONNECT TO EXPRESS
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // TRATA DE DATOS EN JSON
+app.use(express.static(path.join(__dirname, 'public'))); //EXECUTE index.html in src/public
+
+//ROUTES
+
 
 app.get('/', function (req, res) {
   res.send('Hello World!');

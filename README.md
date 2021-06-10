@@ -15,17 +15,14 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 _Que cosas necesitas para instalar el software y como instalarlas_
 
 ```
-Node
-NPM
-Visual Studio Code (Otro editor)
-
+Mongodb, Express, Vuejs y Nodejs
 ```
 
 ### Instalación 🔧
 
 _Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-_Dí cómo será ese paso_
+_Iniciar la aplicación en NODE_
 
 ```
 npm run start
