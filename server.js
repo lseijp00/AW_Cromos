@@ -1,13 +1,15 @@
 //Configuración archivo Servidor
 
-//Common JS
+//Common JS -> Aunque con babel podemos pasarlo
 const express = require('express');
-const app = express();
-
 const morgan = require('morgan');
 const cors = require('cors');
-app.use(express.json());
 const path = require('path');
+const app = express();
+
+
+app.use(express.json());
+
 
 //MIDDLEWARES
 app.use(morgan('tiny'));
