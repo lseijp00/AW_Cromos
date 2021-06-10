@@ -5,6 +5,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const mongoose = require('mongoose');
 const app = express();
 
 
@@ -19,7 +20,8 @@ app.use(express.json()); // TRATA DE DATOS EN JSON
 app.use(express.static(path.join(__dirname, 'public'))); //EXECUTE index.html in src/public
 
 //ROUTES
-
+// Añadiendo el primer parametro decimos que siempre empiezan las rutas por :/tasks
+app.use('/tasks',require('./src/routes/tasks')); //Cargando el modulo de tareas CRUD
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -27,5 +29,5 @@ app.get('/', function (req, res) {
 
 app.set('puerto', process.env.PORT || 3000);
 app.listen(app.get('puerto'), function () {
-  console.log('Example app listening on port'+ app.get('puerto'));
+  console.log('Example app listening on port ' + app.get('puerto'));
 });
