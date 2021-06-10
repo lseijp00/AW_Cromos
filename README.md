@@ -28,13 +28,13 @@ _Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener 
 _Dí cómo será ese paso_
 
 ```
-Da un ejemplo
+npm run start
 ```
 
 _Y repite_
 
 ```
-hasta finalizar
+npm run dev
 ```
 
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
