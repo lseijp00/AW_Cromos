@@ -5,17 +5,23 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
     margin: 0;
+    color: black;
 }
 
-a{
+#registrarseRedirect {
+    color: black;
     text-decoration: none;
-    color:black;
 }
 
-.container{
+#registrarseRedirect:hover {
+    color: #007bff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    color: black;
     font-family: "Gilroy-Regular", sans-serif;
     display: flex;
     min-width: 90vw;
@@ -24,17 +30,28 @@ a{
     margin-right: 3rem;
 }
 
-.centrarItems{
+.centrarItems {
     text-align: center;
 }
 
-.contenedorFormulario{
-    background-color: rgb(241, 192, 183,0.7);
+.contenedorFormulario {
+    background-color: rgb(241, 192, 183, 0.7);
     padding: 1.5rem;
     border-radius: 1rem;
 }
 
-.botonSubmit{
-    background-color: rgb(101, 101, 235,0.7);
+.botonSubmit {
+    background-color: rgb(	0, 123, 255, 0.7);
+    border-radius: 2rem;
     margin-left: 5rem;
+    outline: none;
 }
+    .botonSubmit:HOVER {
+        cursor: pointer;
+        background-color: rgb(	0, 123, 255);
+
+    }
+    .botonSubmit:focus {
+        outline: none;
+        border-radius: 2rem;
+    }
