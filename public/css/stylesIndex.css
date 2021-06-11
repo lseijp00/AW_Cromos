@@ -1,0 +1,40 @@
+body {
+    background: url("/images/1.png");
+    font-family: "Gilroy-Regular", sans-serif;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+.container{
+    font-family: "Gilroy-Regular", sans-serif;
+    display: flex;
+    min-width: 90vw;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    margin-right: 3rem;
+}
+
+.centrarItems{
+    text-align: center;
+}
+
+.contenedorFormulario{
+    background-color: rgb(241, 192, 183,0.7);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.botonSubmit{
+    background-color: rgb(101, 101, 235,0.7);
+    margin-left: 5rem;
+}
