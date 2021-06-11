@@ -1,4 +1,4 @@
-const dbConfig = require('./db.config');
+const dbConfig = require('../config/db.config');
 const Sequelize = require("sequelize");
 
 
@@ -7,16 +7,11 @@ const sequelize = new Sequelize(dbConfig.local.database, dbConfig.local.user, db
     dialect: 'mysql'
   });
 
-  try {
-     sequelize.authenticate();
-    console.log('Connection has been established successfully to DB.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
 
+  //La coenxión no se cierra hasta que queramos nosotros
   const db = {};
 
   db.Sequelize = Sequelize;
   db.sequelize = sequelize;
     
-  module.exports = db;
+  module.exports = sequelize;
