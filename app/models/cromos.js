@@ -1,7 +1,6 @@
 
 
 const {Model, DataTypes} = require('sequelize');
-
 const sequelize = require('./db');
 
 class Cromos extends Model {}
@@ -22,7 +21,7 @@ class Cromos extends Model {}
   },{
     
       sequelize: sequelize,
-      modelName: 'Cromos'
+      modelName: 'cromos'
     
   });
 

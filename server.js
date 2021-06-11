@@ -34,9 +34,10 @@ var connection = require('./app/models/db');
 
 //Crea la tabla
 const cromos = require('./app/models/cromos');
+const users = require('./app/models/users');
 
 app.get('/', function (req, res) {
-  
+  /*
   cromos.create({
     id: 2,
     title: 'Segundo CROMO',
@@ -44,7 +45,12 @@ app.get('/', function (req, res) {
     collection: true
   }).then(cromo => {
     res.json(cromo)
-  });
+  });*/
+
+  cromos.findAll().then(cromos => {
+    res.json(cromos);
+  })
+  
 });
 
 app.set('puerto', process.env.PORT || 3000);
