@@ -27,7 +27,8 @@ body {
     min-width: 90vw;
     justify-content: flex-end;
     margin-top: 3rem;
-    margin-right: 3rem;
+    margin-right: 10rem;
+    
 }
 
 .centrarItems {
@@ -35,23 +36,43 @@ body {
 }
 
 .contenedorFormulario {
-    background-color: rgb(241, 192, 183, 0.7);
+    margin-top: 3rem;
+    transform: scale(1.1);
+    background-color: rgba(240, 211, 206, 0.6);
     padding: 1.5rem;
-    border-radius: 1rem;
+    border-radius: 4rem;
+    transition:0.3s;
 }
 
-.botonSubmit {
-    background-color: rgb(	0, 123, 255, 0.7);
-    border-radius: 2rem;
-    margin-left: 5rem;
-    outline: none;
-}
-    .botonSubmit:HOVER {
-        cursor: pointer;
-        background-color: rgb(	0, 123, 255);
+.contenedorFormulario:hover {
+    background-color: rgb(241, 192, 183, 1);
 
-    }
-    .botonSubmit:focus {
-        outline: none;
-        border-radius: 2rem;
-    }
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    padding:5px;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: -moz-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
+    color: #FFF;
+    text-transform: uppercase;
+    text-shadow: #000 0px 1px 5px;
+    border: 1px solid #000;
+    opacity: 0.7;
+    margin-left: 2rem;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+}
+
+input:focus {
+    background: rgba(124, 35, 35, 0.3);
+}
+
+input[type="submit"]:hover {
+    opacity: 1;
+    cursor: pointer;
+}
