@@ -1,0 +1,142 @@
+body {
+    background: url("/images/black_linen_v2.png");
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+a,ul,li{
+    text-decoration: none;
+    list-style-type: none; 
+}
+a:hover{
+    text-decoration: none;
+    list-style-type: none; 
+}
+
+.contenedorGenerico{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedorArriba{
+    display: flex;
+    flex-direction: row;
+}
+
+    .contenedorVacio{
+        display:flex;
+        width: 72vw;
+        border-bottom:blanchedalmond solid 1px;
+    }
+
+    .contenedorTitulo{
+        text-align: center;
+        padding:4rem;
+        width: 28vw;
+        background-color: blanchedalmond;
+    }
+
+.contenedorAbajo{
+    display: flex;
+}
+
+    .contenedorVacioIzquierda{
+        height:100vh;
+        display:flex;
+        flex-direction: column;
+        width: 28vw;
+        border-right: blanchedalmond solid 1px;;
+    }
+    .menu{
+        margin-left: 10vw;
+        margin-top:4rem;
+    }
+    .menu ul{
+        text-align: center;
+    }
+    .menu li{
+        list-style-type: none;
+        display:flex;
+        flex-direction: column;
+    }
+    .menu a{
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: 10rem;
+        color:blanchedalmond;
+        transition: 0.4s;
+    }
+    .menu a:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+
+    }
+
+.flip-card {
+    background-color: transparent;
+    width: 140px;
+    height: 210px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 100;
+    background-color: rgb(169, 196, 223);
+    color: black;
+    transform: rotateY(180deg);
+  }
+
+.imagenRecortar{
+    width: 140px;
+    height: 210px;
+    object-fit: cover;
+    border: black 2px solid;
+    border-radius: 1rem;
+}
+
+.estrellaPuntos{
+    color:red;
+    position: absolute; 
+    top:7%; left:15%;
+    transform: scale(1.7);
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.puntajeCarta{
+    position: absolute; 
+    font-weight: bold;
+    top:6%; left:18%;
+    z-index: 50;
+}
