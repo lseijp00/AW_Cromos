@@ -21,22 +21,24 @@
         <div class="wrapper">
             <p class="centrarTexto">Se necesita de sus credenciales para poder iniciar sesión como usuario en nuestra
                 página web</p>
-            <form class="form" method="post" action="#">
 
-                <input type="text" class="name" placeholder="Nombre de usuario">
-                <p class="name-help">Por favor introduzca su nombre de usuario.</p>
+            <form class="form" method="post" action="/register">
 
-                <input type="text" class="name" placeholder="Nombre">
+                <input type="text" class="name" name="firstname" placeholder="Nombre" required>
                 <p class="name-help">Por favor introduzca su nombre.</p>
 
-                <input type="email" class="email" placeholder="Apellidos">
-                <p class="email-help">Por favor introduzca sus apellidos</p>
+                <input class="text" name="lastName" placeholder="Apellidos" >
+                <p class="name-help">Por favor introduzca sus apellidos</p>
 
-                <input type="email" class="email" placeholder="Password">
-                <p class="email-help">Por favor introduzca una contraseña</p>
+                <input type="text" class="name" name="username" placeholder="Nombre de usuario" required>
+                <p class="name-help">Por favor introduzca su nombre de usuario.</p>
+
+                <input type="password" class="name" name="password" placeholder="Password" required>
+                <p class="name-help">Por favor introduzca una contraseña</p>
 
                 <input type="submit" class="submit" value="Registrarse">
             </form>
+            
         </div>
     </div>
 </body>

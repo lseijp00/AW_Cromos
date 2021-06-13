@@ -26,20 +26,20 @@
 
 <body>
     <div class="container">
-        <form class="contenedorFormulario centrarItems" action="/views/paginaCromos.html">
+        <form method="post" class="contenedorFormulario centrarItems" action="/auth">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre de usuario</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                     placeholder="Nombre de usuario">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
             </div>
             <a id="registrarseRedirect" href="/views/paginaRegistrarse.html">Regístrate aquí</a>
             <input type="submit" class="submit" value="Iniciar sesión">
         </form>
     </div>
 </body>
-
+    
 </html>
