@@ -60,12 +60,18 @@ a:hover{
         display:flex;
         flex-direction: column;
     }
-    .menu a{
+    
+    .menu a,button[data-target="#exampleModal"]{
+        background-color: transparent;
+        border:none;
+        border-radius: 0;
         padding-bottom: 1.5rem;
         padding-top: 1.5rem;
         width: 10rem;
         color:blanchedalmond;
         transition: 0.4s;
+        outline:none;
+
     }
     .menu a:hover{
         text-decoration: none;
@@ -73,6 +79,15 @@ a:hover{
         color:black;
 
     }
+    .menu button[data-target="#exampleModal"]:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+        border:none;
+        outline:none;
+        cursor:pointer;
+    }
+
 
     form a{
         margin-bottom: 2rem;
