@@ -129,7 +129,7 @@ app.listen(app.get('puerto'), function() {
 
     try {
         // connection.authenticate(); -> Prueba la conexión
-        connection.sync({ force: false }); // El farce false no reinicia las tablas constantemente
+        connection.sync({ force: true }); // El farce false no reinicia las tablas constantemente
         console.log('Connection has been established successfully to DB.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);
