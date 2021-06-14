@@ -3,12 +3,11 @@ const sequelize = require('./db');
 
 class Users extends Model{}
 
- 
  Users.init({
-
       id: {
           autoIncrement: true,
           primaryKey: true,
+          autoIncrement: true,
           type: DataTypes.INTEGER
       },
 

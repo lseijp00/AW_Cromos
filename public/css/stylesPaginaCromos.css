@@ -6,6 +6,7 @@ body {
 }
 
 a,ul,li{
+    color:black;
     text-decoration: none;
     list-style-type: none; 
 }
@@ -24,17 +25,33 @@ a:hover{
     flex-direction: row;
 }
 
-    .contenedorVacio{
-        display:flex;
-        width: 72vw;
-        border-bottom:blanchedalmond solid 1px;
-    }
-
     .contenedorTitulo{
         text-align: center;
         padding:4rem;
         width: 28vw;
         background-color: blanchedalmond;
+    }
+
+    .contenedorVacio{
+        display:flex;
+        justify-content: flex-end;
+        width: 72vw;
+        border-bottom:blanchedalmond solid 1px;
+    }
+ 
+    .botonCerrarSesion{
+        display:flex;
+        align-items: flex-end;
+        margin-right: 7vw;
+        margin-bottom: 2vh;
+        font-size: 4rem;
+        padding:1rem;
+        color:blanchedalmond;
+    }
+    .botonCerrarSesion:hover{
+        text-decoration: none;
+        color:blanchedalmond;
+        font-size: 4.5rem;
     }
 
 .contenedorAbajo{
@@ -60,21 +77,34 @@ a:hover{
         display:flex;
         flex-direction: column;
     }
-    .menu a{
+    
+    .menu a[class="botonesMenu"],button[data-target="#exampleModal"],button[data-target="#exampleModal2"]{
+        background-color: transparent;
+        border:none;
+        border-radius: 0;
         padding-bottom: 1.5rem;
         padding-top: 1.5rem;
         width: 10rem;
         color:blanchedalmond;
         transition: 0.4s;
+        outline:none;
     }
-    .menu a:hover{
+
+    .menu a[class="botonesMenu"]:hover{
         text-decoration: none;
         background-color: blanchedalmond;
         color:black;
 
     }
-
-    form a{
+    .menu button[data-target="#exampleModal"]:hover,button[data-target="#exampleModal2"]:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+        border:none;
+        outline:none;
+        cursor:pointer;
+    }
+    form a[class="botonesMenu"]{
         margin-bottom: 2rem;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -145,4 +175,18 @@ a:hover{
     font-weight: bold;
     top:6%; left:18%;
     z-index: 50;
+}
+
+
+.opcionBoton{
+    background-color: none;
+    outline:none;
+    padding:1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border-color:none;
+}
+
+.opcionBoton:focus{
+    outline: none;
 }

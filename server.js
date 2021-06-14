@@ -37,11 +37,13 @@ const Swal = require('sweetalert2')
 
 //variable de sesion
 const session = require("express-session")
+app.set('trust proxy', 1)
 app.use(session({
-    secret:'secret',
-    resave:true,
-    saveUninitialized:true
-}));
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 
 //Connection
 var connection = require('./app/models/db');
@@ -63,9 +65,8 @@ app.get('/public/views/paginaComprarCromos.html', function(req, res) {
 });
 
 
-
 //formulario registrarse
-app.post("/register", async (req,res)=>{
+app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
     const user = req.body.user;
     const password = req.body.password;
     const lastname = req.body.lastName;
@@ -84,7 +85,7 @@ app.post("/register", async (req,res)=>{
 });
 
 //formulario inicio sesion
-app.post("/auth", async(req,res)=>{
+app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
     console.log(username)
@@ -96,31 +97,38 @@ app.post("/auth", async(req,res)=>{
     if (user === null) {
         console.log('Not found!');
 
-        res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
+        res.render(path.join(__dirname + '/public/views/index.html'), {
             isAuth:false,
             username:username
           });
    
     } else {
-        console.log(user instanceof users);
-        console.log(user.username);
-        console.log(user.password);
+        console.log("USUARIO "+user.username);
+        console.log("PASSWORD " +user.password);
         req.session.loggedin = true;
         req.session.username = username;
         req.session.usuario='Luis Seijas'
         req.session.rol='Admin'
         req.session.visitas= req.session.visitas ? ++req.session.visitas : 1;
         console.log(req.session)
-        res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
-            isAuth:true,
-            username:username
-          });
+        if(req.session.username!=undefined){
+            res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
+                isAuth:true,
+                visitas:req.session.visitas,
+                usuario:req.session.usuario
+            });
+        }
 
     }
 })
 
 
+app.get('/public/views/logout',(req,res) => {
+    req.session.destroy(() => {
+        res.redirect('/');
+    });
 
+});
 
 app.set('puerto', process.env.PORT || 8888);
 app.listen(app.get('puerto'), function() {
@@ -129,7 +137,7 @@ app.listen(app.get('puerto'), function() {
 
     try {
         // connection.authenticate(); -> Prueba la conexión
-        connection.sync({ force: true }); // El farce false no reinicia las tablas constantemente
+        connection.sync({ force: false }); // El farce false no reinicia las tablas constantemente
         console.log('Connection has been established successfully to DB.');
     } catch (error) {
         console.error('Unable to connect to the database:', error);

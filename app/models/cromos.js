@@ -6,17 +6,19 @@ const sequelize = require('./db');
 class Cromos extends Model {}
   Cromos.init({
     id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
+      primaryKey: true,
+      autoIncrement: true,
+      type: DataTypes.INTEGER
+
      },
-   title: {
+   name: {
      type: DataTypes.STRING
    },
-   description: {
-     type: DataTypes.STRING
-   },
-   collection: {
-     type: DataTypes.BOOLEAN
+   imagen: {
+    type: DataTypes.STRING
+  },
+   puntos: {
+     type: DataTypes.INTEGER
    }
   },{
     
