@@ -28,7 +28,8 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
-    "sweetalert2": "^11.0.17"
+    "sweetalert2": "^11.0.17",
+    "webpack": "^5.38.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
