@@ -24,17 +24,33 @@ a:hover{
     flex-direction: row;
 }
 
-    .contenedorVacio{
-        display:flex;
-        width: 72vw;
-        border-bottom:blanchedalmond solid 1px;
-    }
-
     .contenedorTitulo{
         text-align: center;
         padding:4rem;
         width: 28vw;
         background-color: blanchedalmond;
+    }
+
+    .contenedorVacio{
+        display:flex;
+        justify-content: flex-end;
+        width: 72vw;
+        border-bottom:blanchedalmond solid 1px;
+    }
+ 
+    .botonCerrarSesion{
+        display:flex;
+        align-items: flex-end;
+        margin-right: 7vw;
+        margin-bottom: 2vh;
+        font-size: 4rem;
+        padding:1rem;
+        color:blanchedalmond;
+    }
+    .botonCerrarSesion:hover{
+        text-decoration: none;
+        color:blanchedalmond;
+        font-size: 4.5rem;
     }
 
 .contenedorAbajo{
@@ -60,19 +76,34 @@ a:hover{
         display:flex;
         flex-direction: column;
     }
-    .menu a{
+    
+    .menu a,button[data-target="#exampleModal"]{
+        background-color: transparent;
+        border:none;
+        border-radius: 0;
         padding-bottom: 1.5rem;
         padding-top: 1.5rem;
         width: 10rem;
         color:blanchedalmond;
         transition: 0.4s;
+        outline:none;
     }
+    
     .menu a:hover{
         text-decoration: none;
         background-color: blanchedalmond;
         color:black;
 
     }
+    .menu button[data-target="#exampleModal"]:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+        border:none;
+        outline:none;
+        cursor:pointer;
+    }
+
 
     form a{
         margin-bottom: 2rem;
