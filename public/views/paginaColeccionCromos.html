@@ -31,7 +31,7 @@
             <div class="contenedorTitulo">
                 <h1>Mi colección de cromos</h1>
             </div>
-            <div class="contenedorVacio">
+            <div id="cerrarSesion" class="contenedorVacio">
                 <a class="botonCerrarSesion" href="logout">
                     <i class="fa fa-power-off"></i>
                 </a>
@@ -42,10 +42,10 @@
                 <nav class="menu">
                     <ul>
                         <li class="">
-                            <a href="/public/views/paginaComprarCromos.html">Comprar cromos</a>
+                            <a class="botonesMenu" href="/public/views/paginaComprarCromos.html">Comprar cromos</a>
                         </li>
                         <li class="">
-                            <a href="#">Mi colección</a>
+                            <a class="botonesMenu" href="#">Mi colección</a>
                         </li>
                         <li class="nav-item">
                             <button class="boton" style="border:none;outline:none;text-decoration: none;"
@@ -75,7 +75,54 @@
 
                         </li>
                         <li class="nav-item">
-                            <a href="#">Actividad para ganar puntos</a>
+                            <button id="botonActividadPuntos" class="boton tacharBoton"
+                                style="border:none;outline:none;text-decoration: none;" data-toggle="modal"
+                                data-target="#exampleModal2">
+                                Actividad para ganar puntos
+                            </button>
+                            <div class="modal fade" style="margin-top:4%;" id="exampleModal2" tabindex="-1"
+                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 2 puntos
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="font-size: 25px;">
+                                            ¿Cuál es la capital de Italia?
+                                        </div>
+                                        <div class="modal-body" style="font-size: 18px;">
+                                            <ul>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none;"
+                                                        onclick="fondoVerde()" class="opcionBoton">Roma</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none;"
+                                                        onclick="fondoRojo()" class="opcionBoton">Madrid</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none;"
+                                                        onclick="fondoRojo()" class="opcionBoton">Oslo</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none;"
+                                                        onclick="fondoRojo()" class="opcionBoton">París</button>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            ¡Solo una oportunidad!
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
                         </li>
                     </ul>
                 </nav>
@@ -102,6 +149,71 @@
         </div>
     </div>
 
+
+    <script>
+
+        var elemOpciones = document.getElementsByClassName("opcionBoton");
+        var botonActividadPuntos = document.getElementById("botonActividadPuntos");
+
+
+        function addCss(fileName) {
+
+            var head = document.head;
+            var link = document.createElement("link");
+
+            link.type = "text/css";
+            link.rel = "stylesheet";
+            link.href = fileName;
+
+            head.appendChild(link);
+        }
+
+
+        //localStorage 
+        const storage = window.localStorage;
+
+        //si pulsa Roma
+        function fondoVerde() {
+            elemOpciones[0].style.backgroundColor = "green"
+            elemOpciones[1].disabled = "true"
+            elemOpciones[2].disabled = "true"
+            elemOpciones[3].disabled = "true"
+            botonActividadPuntos.disabled = "true"
+            addCss("/css/tacharBoton.css")
+            storage.setItem("preguntaUtilizada", "true")
+
+        }
+        //si pulsa Madrid, Oslo o París
+        function fondoRojo() {
+            elemOpciones[0].style.backgroundColor = "green"
+            elemOpciones[0].disabled = "true"
+            elemOpciones[1].style.backgroundColor = "red"
+            elemOpciones[2].style.backgroundColor = "red"
+            elemOpciones[3].style.backgroundColor = "red"
+            elemOpciones[1].disabled = "true"
+            elemOpciones[2].disabled = "true"
+            elemOpciones[3].disabled = "true"
+            botonActividadPuntos.disabled = "true"
+            addCss("/css/tacharBoton.css")
+            storage.setItem("preguntaUtilizada", "true")
+        }
+
+
+        //cuando se cambie de pagina, queremos que siga tachado el boton
+        var preguntaUtilizada = storage.getItem("preguntaUtilizada");
+        if (preguntaUtilizada == "true") {
+            fondoVerde()
+            fondoRojo()
+        }
+
+        //si se presionar el boton de cerrar sesion, se reestablecen 
+        //las cookies para que otro usuario pueda responder a la pregunta
+        $('#cerrarSesion').click(function () {
+            storage.clear()
+        });
+
+
+    </script>
 
 </body>
 
