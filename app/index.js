@@ -1,1 +1,0 @@
-alert('Trabajando con vue');
