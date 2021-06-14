@@ -1,10 +1,10 @@
-.tacharBoton{
+.tacharBoton2{
     position: relative;
     background: gray;
    overflow: hidden;
 }
 
-.tacharBoton:before, .tacharBoton:after {
+.tacharBoton2:before, .tacharBoton2:after {
     position: absolute;
     content: '';
     background: red;
@@ -20,7 +20,7 @@
     margin: auto;
 }
 
-.tacharBoton:after {
+.tacharBoton2:after {
     -webkit-transform: rotate(45deg);  
     transform: rotate(45deg);
 }

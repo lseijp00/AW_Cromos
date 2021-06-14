@@ -32,12 +32,33 @@ h1 {
 }
  
 .contenedorFlecha{
-    display: flex;
+    display: block;
     min-width: 75%;
     justify-content: start;
     font-size:3rem;
-    
 }
+    .quitarSubrayado:hover{
+        text-decoration: none;
+    }
+
+
+.cambiarColeccion{
+    display:inline-block;
+    padding:1rem;
+    margin-top:1.5rem;
+    margin-left: 70vw;
+    font-size: 20px;
+    color:whitesmoke;
+}
+
+    .cambiarColeccion:hover{
+        text-decoration: none;
+        color:black;
+        outline:1px solid whitesmoke;
+        cursor:pointer;
+    }
+
+
 
 .contenedorSeparador{
     display:flex;
@@ -131,3 +152,4 @@ h1 {
         top:6%; left:18%;
         z-index: 50;
     }
+

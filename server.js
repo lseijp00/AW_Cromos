@@ -20,17 +20,11 @@ app.use(express.static(path.join(__dirname, '/public'))); //EXECUTE index.html i
 app.engine('html', require('ejs').renderFile);
 
 
-console.log(__dirname)
 
 //ROUTES
 // Añadiendo el primer parametro decimos que siempre empiezan las rutas por :/tasks
 app.use('/tasks', require('./app/routes/tasks')); //Cargando el modulo de tareas CRUD
-/*
-const db = require('./app/models/db');
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
-*/
+
 
 //sweetalert2
 const Swal = require('sweetalert2')
@@ -43,13 +37,15 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: { secure: true }
-  }))
+  },30000))
+
 
 //Connection
 var connection = require('./app/models/db');
 //bcrypt
 //Crea la tabla
 const cromos = require('./app/models/cromos');
+
 const users = require('./app/models/users');
 
 app.get('/', function(req, res) {
@@ -60,8 +56,27 @@ app.get('/public/views/paginaColeccionCromos.html', function(req, res) {
     res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'));
 });
 
-app.get('/public/views/paginaComprarCromos.html', function(req, res) {
-    res.render(path.join(__dirname + '/public/views/paginaComprarCromos.html'));
+
+
+app.get('/public/views/paginaComprarCromos.html', async(req, res)=> {
+
+    let arrayCromosOliver = await cromos.findAll({
+       where:{
+           id: 
+               [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+       }
+
+    })
+    let arrayCromosHarry = await cromos.findAll({
+        where:{
+            id: 
+                [51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+        }
+ 
+     })
+
+    res.render(path.join(__dirname + '/public/views/paginaComprarCromos.html'), {arrayCromosOliver:arrayCromosOliver,arrayCromosHarry:arrayCromosHarry});
+
 });
 
 
@@ -110,7 +125,6 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
         req.session.usuario='Luis Seijas'
         req.session.rol='Admin'
         req.session.visitas= req.session.visitas ? ++req.session.visitas : 1;
-        console.log(req.session)
         if(req.session.username!=undefined){
             res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
                 isAuth:true,

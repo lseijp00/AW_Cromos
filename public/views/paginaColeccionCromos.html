@@ -23,6 +23,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 
 <body style="font-family: Gilroy-Regular;">
@@ -78,7 +80,7 @@
                             <button id="botonActividadPuntos" class="boton tacharBoton"
                                 style="border:none;outline:none;text-decoration: none;" data-toggle="modal"
                                 data-target="#exampleModal2">
-                                Actividad para ganar puntos
+                                Actividad 1 para ganar puntos
                             </button>
                             <div class="modal fade" style="margin-top:4%;" id="exampleModal2" tabindex="-1"
                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -124,31 +126,87 @@
                             </div>
 
                         </li>
+
+                        <li class="nav-item">
+                            <button id="botonActividadPuntosCaptcha" class="boton tacharBoton2"
+                                style="border:none;outline:none;text-decoration: none;" data-toggle="modal"
+                                data-target="#exampleModal3">
+                                Actividad 2 para ganar puntos
+                            </button>
+                            <div class="modal fade" style="margin-top:4%;" id="exampleModal3" tabindex="-1"
+                                role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 2 puntos
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="font-size: 25px;">
+                                            ¿Qué ve en la imagen?
+                                        </div>
+                                        <div class="modal-body" style="font-size: 25px;">
+                                            <img src="https://i.pinimg.com/originals/3b/ee/07/3bee0708b416dae88c0df35c16456707.jpg" alt="Girl in a jacket" width="25%">
+                                        </div>
+                                        <div class="modal-body" style="font-size: 18px;">
+                                            <ul>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none; font-size:16px;"
+                                                        onclick="fondoVerdeCaptcha()" class="opcionBoton">Carro</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none; font-size:16px;"
+                                                        onclick="fondoRojoCaptcha()" class="opcionBoton">Armario</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none; font-size:16px;"
+                                                        onclick="fondoRojoCaptcha()" class="opcionBoton">Bolígrafo</button>
+                                                </li>
+                                                <li>
+                                                    <button style="color: black; text-decoration: none; font-size:16px;"
+                                                        onclick="fondoRojoCaptcha()" class="opcionBoton">Botella</button>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            ¡Solo una oportunidad!
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
                     </ul>
                 </nav>
             </div>
 
             <div class="contenedorCromos mt-5 ml-5">
-                <div class="flip-card ">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img class="imagenRecortar" src="https://www.compra-venta.es/sh-img/Tsubasa%252BOliver%252Be%252Bbenji_oliver%2Bbenji.jpg
-                            " alt="Avatar">
-                            <div class="contenedorPuntaje">
-                                <p class="puntajeCarta">3</p>
-                                <i class="lni lni-star-filled estrellaPuntos"></i>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <h1 style="font-size: 20px;">Oliver Atom</h1>
-                            <p>Sus muertos</p>
-                        </div>
-                    </div>
+                <div class="contenedorColecciones">
+                    <h3 style="color:whitesmoke;">Tu colección de Oliver y Benji consta de:</h3>
+                    <p style="color:whitesmoke;">0/10 cromos</p>
+                    <h3 class="mt-5" style="color:whitesmoke;">Tu colección de Harry Potter consta de:</h3>
+                    <p style="color:whitesmoke;">0/10 cromos</p>
                 </div>
             </div>
         </div>
     </div>
 
+
+    <script>
+        function miFuncion() {
+            var response = grecaptcha.getResponse();
+
+            if (response.length == 0) {
+                alert("Captcha no verificado")
+            } else {
+                alert("Captcha verificado");
+            }
+        }
+    </script>
 
     <script>
 
@@ -180,7 +238,7 @@
             elemOpciones[3].disabled = "true"
             botonActividadPuntos.disabled = "true"
             addCss("/css/tacharBoton.css")
-            storage.setItem("preguntaUtilizada", "true")
+            storage.setItem("preguntaUtilizada1", "true")
 
         }
         //si pulsa Madrid, Oslo o París
@@ -195,9 +253,33 @@
             elemOpciones[3].disabled = "true"
             botonActividadPuntos.disabled = "true"
             addCss("/css/tacharBoton.css")
-            storage.setItem("preguntaUtilizada", "true")
+            storage.setItem("preguntaUtilizada1", "true")
         }
 
+        function fondoVerdeCaptcha() {
+            elemOpciones[4].style.backgroundColor = "green"
+            elemOpciones[5].disabled = "true"
+            elemOpciones[6].disabled = "true"
+            elemOpciones[7].disabled = "true"
+            botonActividadPuntosCaptcha.disabled = "true"
+            addCss("/css/tacharBoton2.css")
+            storage.setItem("preguntaUtilizada2", "true")
+
+        }
+
+        function fondoRojoCaptcha() {
+            elemOpciones[4].style.backgroundColor = "green"
+            elemOpciones[4].disabled = "true"
+            elemOpciones[5].style.backgroundColor = "red"
+            elemOpciones[6].style.backgroundColor = "red"
+            elemOpciones[7].style.backgroundColor = "red"
+            elemOpciones[5].disabled = "true"
+            elemOpciones[6].disabled = "true"
+            elemOpciones[7].disabled = "true"
+            botonActividadPuntosCaptcha.disabled = "true"
+            addCss("/css/tacharBoton2.css")
+            storage.setItem("preguntaUtilizada2", "true")
+        }
 
         //cuando se cambie de pagina, queremos que siga tachado el boton
         var preguntaUtilizada = storage.getItem("preguntaUtilizada");

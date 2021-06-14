@@ -67,7 +67,7 @@ a:hover{
     }
     .menu{
         margin-left: 12vw;
-        margin-top:4rem;
+        margin-top:2rem;
     }
     .menu ul{
         text-align: center;
@@ -78,7 +78,7 @@ a:hover{
         flex-direction: column;
     }
     
-    .menu a[class="botonesMenu"],button[data-target="#exampleModal"],button[data-target="#exampleModal2"]{
+    .menu a[class="botonesMenu"],button[data-target="#exampleModal"],button[data-target="#exampleModal2"],button[data-target="#exampleModal3"]{
         background-color: transparent;
         border:none;
         border-radius: 0;
@@ -96,7 +96,7 @@ a:hover{
         color:black;
 
     }
-    .menu button[data-target="#exampleModal"]:hover,button[data-target="#exampleModal2"]:hover{
+    .menu button[data-target="#exampleModal"]:hover,button[data-target="#exampleModal2"]:hover,button[data-target="#exampleModal3"]:hover{
         text-decoration: none;
         background-color: blanchedalmond;
         color:black;

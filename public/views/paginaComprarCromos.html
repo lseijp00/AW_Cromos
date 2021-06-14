@@ -29,13 +29,17 @@
 <body style="font-family: Gilroy-Regular;">
     <div class="contenedorGenerico">
         <div class="contenedorFlecha">
-            <a href="paginaColeccionCromos.html">
+            <a class="quitarSubrayado" href="paginaColeccionCromos.html">
                 <i class="fa fa-arrow-left" style="color:whitesmoke;"></i>
+            </a>
+            <a style="color:whitesmoke;" class="cambiarColeccion" onclick="cambiarCromos()">
+                Otra colección
             </a>
         </div>
         <div class="contenedorTitulo">
             <h1 class="titulo" style="color:whitesmoke;font-size: 4rem;">COMPRAR CROMOS</h1>
         </div>
+
         <div class="contenedorSeparador">
             <div class="separador">&nbsp</div>
             <i class="fa fa-square fa-lg cuadradoPequeño"></i>
@@ -89,8 +93,8 @@
                             style="transform: scale(0.7);">Comprar</button>
                     </div>
                 </div>
-                
-                
+
+
 
             </div>
             <div class="row mt-5">
@@ -116,7 +120,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 d-flex justify-content-center">
-                    <div class="flip-card ">
+                    <div class="flip-card">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
                                 <img class="imagenRecortar" src="http://3.bp.blogspot.com/-EtcSnwjlYyk/Uc9FjWKVwiI/AAAAAAAAA0o/ut5uz7WX0RM/s686/ass.jpg
@@ -140,7 +144,7 @@
                     <div class="flip-card ">
                         <div class="flip-card-inner">
                             <div class="flip-card-front">
-                                <img class="imagenRecortar" src="https://res.cloudinary.com/postedin/image/upload/d_secundarios:no-image.jpg,f_auto,q_80/secundarios/c-9686a00216.png
+                                <img class="imagenRecortar" src="https://s1.eestatic.com/2017/05/02/cultura/libros/harry_potter-j-k-_rowling-novela_212989964_33661586_854x640.jpg
                         " alt="Avatar">
                                 <div class="contenedorPuntaje">
                                     <p class="puntajeCarta">3</p>
@@ -265,12 +269,143 @@
                             style="transform: scale(0.7);">Comprar</button>
                     </div>
                 </div>
-                
+
             </div>
 
 
         </div>
     </div>
+
+
+    <script>
+        const arrayCromosOliver = <%- JSON.stringify(arrayCromosOliver) %>;
+        const arrayCromosHarry = <%- JSON.stringify(arrayCromosHarry) %>;
+
+        var arrayNombres = [];
+        var arrayImagenes = [];
+        var arrayPuntajes = [];
+
+
+        function cambiarCromos() {
+            let aux = document.getElementsByClassName("imagenRecortar");
+
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                asignarCromosHarry();
+            } else {
+
+
+                for (let i = 0; i < arrayCromosOliver.length; i++) {
+                    var nombreCromo = arrayCromosOliver[i].name;
+                    var imagenCromo = arrayCromosOliver[i].imagen;
+                    var puntosCromo = arrayCromosOliver[i].puntos;
+
+                    arrayNombres.push(nombreCromo);
+                    arrayImagenes.push(imagenCromo);
+
+                    if ((i + 1) % 5 == 0) {
+                        arrayPuntajes.push(puntosCromo);
+                    }
+
+                }
+
+                uniqueArrayNombres = arrayNombres.filter(function (item, pos) {
+                    return arrayNombres.indexOf(item) == pos;
+                })
+                uniqueArrayImagenes = arrayImagenes.filter(function (item, pos) {
+                    return arrayImagenes.indexOf(item) == pos;
+                })
+
+
+                //insertar imagenes de los cromos
+                var elementosCromosImages = document.getElementsByClassName("imagenRecortar");
+                for (let i = 0; i < elementosCromosImages.length; i++) {
+                    elementosCromosImages[i].src = uniqueArrayImagenes[i];
+                }
+
+                //este array va a dar como resultado 11 elementos en vez de 10 , pero se arregla en el for de debajo
+                var elementosCromosNombres = document.getElementsByTagName("h1");
+
+                for (let i = 1; i < elementosCromosNombres.length + 1; i++) {
+                    if (elementosCromosNombres[i] != undefined) {
+                        elementosCromosNombres[i].innerHTML = uniqueArrayNombres[i - 1];
+                    }
+                }
+
+                //insertar el puntaje de los cromos
+
+                var elementosCromosPuntos = document.getElementsByTagName("p");
+                console.log(elementosCromosPuntos)
+                console.log(arrayPuntajes)
+
+                for (let i = 0; i < elementosCromosPuntos.length; i++) {
+                    if (elementosCromosPuntos[i] != undefined) {
+                        elementosCromosPuntos[i].innerHTML = arrayPuntajes[i];
+                    }
+                }
+            }
+
+        }
+
+        function asignarCromosHarry() {
+            var arrayNombres = [];
+            var arrayImagenes = [];
+            var arrayPuntajes = [];
+
+            for (let i = 0; i < arrayCromosHarry.length; i++) {
+                var nombreCromo = arrayCromosHarry[i].name;
+                var imagenCromo = arrayCromosHarry[i].imagen;
+                var puntosCromo = arrayCromosHarry[i].puntos;
+
+                arrayNombres.push(nombreCromo);
+                arrayImagenes.push(imagenCromo);
+
+                if ((i + 1) % 5 == 0) {
+                    arrayPuntajes.push(puntosCromo);
+                }
+
+            }
+
+            uniqueArrayNombres = arrayNombres.filter(function (item, pos) {
+                return arrayNombres.indexOf(item) == pos;
+            })
+            uniqueArrayImagenes = arrayImagenes.filter(function (item, pos) {
+                return arrayImagenes.indexOf(item) == pos;
+            })
+
+
+            //insertar imagenes de los cromos
+            var elementosCromosImages = document.getElementsByClassName("imagenRecortar");
+            for (let i = 0; i < elementosCromosImages.length; i++) {
+                elementosCromosImages[i].src = uniqueArrayImagenes[i];
+            }
+
+            //este array va a dar como resultado 11 elementos en vez de 10 , pero se arregla en el for de debajo
+            var elementosCromosNombres = document.getElementsByTagName("h1");
+
+            for (let i = 1; i < elementosCromosNombres.length + 1; i++) {
+                if (elementosCromosNombres[i] != undefined) {
+                    elementosCromosNombres[i].innerHTML = uniqueArrayNombres[i - 1];
+                }
+            }
+
+            //insertar el puntaje de los cromos
+
+            var elementosCromosPuntos = document.getElementsByTagName("p");
+            console.log(elementosCromosPuntos)
+            console.log(arrayPuntajes)
+
+            for (let i = 0; i < elementosCromosPuntos.length; i++) {
+                if (elementosCromosPuntos[i] != undefined) {
+                    elementosCromosPuntos[i].innerHTML = arrayPuntajes[i];
+                }
+            }
+        }
+
+
+
+    </script>
+
+
 
 </body>
 
