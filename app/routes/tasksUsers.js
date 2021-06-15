@@ -6,9 +6,26 @@ const router = express.Router();
 router.get("/crear", (req, res) => {
   res.render(path.join("../public/views/crudUsers/crear.html"));
 });
+
 router.get("/eliminar", (req, res) => {
   res.render(path.join("../public/views/crudUsers/eliminar.html"));
 });
+
+router.post("/eliminar", (req, res) => {
+    Users.destroy({ where : {
+        username : req.body.id
+    }}).then((respuesta) =>{
+        console.log(respuesta);
+        if(respuesta == 1){
+            res.send("Eliminado correctamente");
+        }else{
+            res.send("NO ELIMINADO");
+        }
+    }).catch(err => {
+        res.status(404).send("Error -> " + err);
+      });;
+  });
+
 router.get("/editar", (req, res) => {
   res.render(path.join("../public/views/crudUsers/editar.html"));
 });
@@ -34,10 +51,16 @@ router.post("/crearUser", async(req,res) => {
 
   await Users.findOrCreate({
     where: {//object containing fields to found
+
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         username: req.body.username,
         password: req.body.password
     },
     defaults: {//object containing fields and values to apply
+
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         username: req.body.username,
         password: req.body.password
     }
@@ -52,5 +75,7 @@ router.post("/crearUser", async(req,res) => {
     //res.render(path.join("../public/views/crudUsers/crear.html"));
 
 });
+
+
 
 module.exports = router;
