@@ -27,9 +27,18 @@ a:hover{
 
     .contenedorTitulo{
         text-align: center;
-        padding:4rem;
+        padding:3rem;
         width: 28vw;
         background-color: blanchedalmond;
+    }
+
+    .gestionarUsuarios{
+        text-align: center;
+        width: 72vw;
+    }
+    .tituloCentro{
+        margin-right: 12vw;
+        padding-top:4vh;
     }
 
     .contenedorVacio{
@@ -38,7 +47,23 @@ a:hover{
         width: 72vw;
         border-bottom:blanchedalmond solid 1px;
     }
- 
+    .contenedorAdminVacio{
+        display:flex;
+        width: 72vw;
+        flex-direction: column;
+
+        border-bottom:blanchedalmond solid 1px;
+    }
+        .horizontal{
+            display:flex;
+            flex-direction: row;
+        }
+        .horizontal li{
+            justify-content: flex-end;
+            align-content: flex-end;
+            
+        }
+
     .botonCerrarSesion{
         display:flex;
         align-items: flex-end;
@@ -139,3 +164,38 @@ a:hover{
 }
 
 
+.contenedorCromos{
+    display: flex; 
+    flex-direction: column;
+    justify-content: start;
+    margin-top:6vh;
+    text-align: center;
+    align-content: center;
+    width:54vw;
+}
+
+.inputAdminAñadir{
+    padding:0.5rem;
+    width: 15vw;
+}
+
+.submitAdminAñadir{
+    font-size: 20px;
+    border-radius: 5px;
+}
+.submitAdminAñadir:hover{
+    cursor: pointer;
+    background-color: rgb(0, 172, 238);;
+    color:black;
+}
+
+.contenedorUsuariosVer{
+    margin-right:5vh;
+    margin-top:5vh;
+    display: flex;
+    flex-direction: column;
+    font-size:larger
+} 
+    .contenedorUsuariosVer li{
+        margin-top: 1vh;
+    }   

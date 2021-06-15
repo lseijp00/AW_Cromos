@@ -24,6 +24,9 @@ app.engine('html', require('ejs').renderFile);
 //ROUTES
 // Añadiendo el primer parametro decimos que siempre empiezan las rutas por :/tasks
 app.use('/tasks', require('./app/routes/tasks')); //Cargando el modulo de tareas CRUD
+app.use('/tasksCromos', require('./app/routes/tasksCromos')); //Cargando el modulo de tareas CRUD Cromos
+app.use('/tasksUsers', require('./app/routes/tasksUsers')); //Cargando el modulo de tareas CRUD
+
 
 
 //sweetalert2
@@ -89,20 +92,18 @@ app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
     users.create({
         username: req.body.username,
         password: req.body.password,
-        firstname: req.body.firstname,
-        lastname:req.body.lastName
+        firstname: req.body.firstName,
+        lastname:req.body.lastName,
+        admin: 0
     }).then((user) => res.status(201).send(user)).catch((error) => {
     });
     res.render(path.join(__dirname + '/public/views/index.html'));
 
 });
-
 //formulario inicio sesion
 app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
-    console.log(username)
-    console.log(password)
     
     //devolvera null si no existe el usuario
     const user = await users.findOne({ where: { username:username,password:password } });
@@ -115,19 +116,16 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
             username:username
           });
    
-    } else {
-        console.log("USUARIO "+user.username);
-        console.log("PASSWORD " +user.password);
+    } else if(user.admin === 0){
+            res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
+              user: user
+            });
+
+    }else{
         req.session.loggedin = true;
         req.session.username = username;
-        req.session.visitas= req.session.visitas ? ++req.session.visitas : 1;
-        if(req.session.username!=undefined){
-            res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
-
-                user:user
-            });
-        }
-
+        res.render(path.join(__dirname + '/public/views/indexAdmin.html') );
+        
     }
 })
 

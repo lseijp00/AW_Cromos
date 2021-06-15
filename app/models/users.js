@@ -7,7 +7,6 @@ class Users extends Model{}
       id: {
           autoIncrement: true,
           primaryKey: true,
-          autoIncrement: true,
           type: DataTypes.INTEGER
       },
 
@@ -22,13 +21,17 @@ class Users extends Model{}
       },
 
       username: {
-          type: DataTypes.TEXT
+          type: DataTypes.STRING
       },
 
       password: {
           type: DataTypes.STRING,
           allowNull: false
       },
+      admin: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
     },{
     
       sequelize: sequelize,
