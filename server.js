@@ -47,7 +47,6 @@ var connection = require('./app/models/db');
 //bcrypt
 //Crea la tabla
 const cromos = require('./app/models/cromos');
-
 const users = require('./app/models/users');
 
 app.get('/', function(req, res) {
@@ -85,9 +84,6 @@ app.get('/public/views/paginaComprarCromos.html', async(req, res)=> {
 //formulario registrarse
 app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
     const user = req.body.user;
-    const password = req.body.password;
-    const lastname = req.body.lastName;
-    const name = req.body.name;
     users.create({
         username: req.body.username,
         password: req.body.password,
@@ -102,7 +98,7 @@ app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
 });
 
 //formulario inicio sesion
-app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
+app.post("/public/views/paginaColeccionCromos.html", async(req,res) =>{
     const username = req.body.username;
     const password = req.body.password;
     
