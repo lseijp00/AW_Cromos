@@ -90,10 +90,10 @@ app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
         username: req.body.username,
         password: req.body.password,
         firstname: req.body.firstname,
-        lastname:req.body.lastName
+        lastname:req.body.lastName,
+        admin: 0
     }).then((user) => res.status(201).send(user)).catch((error) => {
-        console.log(error);
-        res.status(400).send(error);
+       console.log("HOLA error");
     });
     res.render(path.join(__dirname + '/public/views/index.html'));
 
@@ -103,11 +103,11 @@ app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
 app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
     const username = req.body.username;
     const password = req.body.password;
-    console.log(username)
-    console.log(password)
     
     //devolvera null si no existe el usuario
     const user = await users.findOne({ where: { username:username,password:password } });
+    console.log("USUARIO "+user.username);
+    console.log("PASSWORD " +user.password);
 
     if (user === null) {
         console.log('Not found!');
@@ -117,9 +117,8 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
             username:username
           });
    
-    } else {
-        console.log("USUARIO "+user.username);
-        console.log("PASSWORD " +user.password);
+    } else if(user.admin == 0){
+
         req.session.loggedin = true;
         req.session.username = username;
         req.session.usuario='Luis Seijas'
@@ -133,6 +132,11 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
             });
         }
 
+    }else{
+        req.session.loggedin = true;
+        req.session.username = username;
+        res.render(path.join(__dirname + '/public/views/indexAdmin.html') );
+        
     }
 })
 

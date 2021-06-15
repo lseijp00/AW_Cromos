@@ -29,6 +29,10 @@ class Users extends Model{}
           type: DataTypes.STRING,
           allowNull: false
       },
+      admin: {
+          type:DataTypes.INTEGER,
+          allowNull: false
+      }
     },{
     
       sequelize: sequelize,
