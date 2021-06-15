@@ -16,35 +16,23 @@ router.get("/editar", (req, res) => {
 
 router.post("/crearUser", async(req,res) => {
 
-   const user = req.body.user;
-
-   await users.findOne({
-    where: {
-      username: req.body.username
+  await users.findOrCreate({
+    where: {//object containing fields to found
+        username: req.body.username,
+        password: req.body.password
     },
-  }).then(function(result) {
-    var author = result[0], // the instance of the author
-      created = result[1]; // boolean stating if it was created or not
-
-    if (!created) { // false if author already exists and was not created.
-      console.log('User already exists');
-      
-    }else{
-        console.log('User NOT exists');
-        
-        users.create({
-            username: req.body.username,
-            password: req.body.password,
-            firstname: req.body.firstname,
-            lastname:req.body.lastName,
-            admin: parseInt(req.body.user)
-        }).then((user) => res.status(201).send(user));
-        console.log('Created');
-        
+    defaults: {//object containing fields and values to apply
+        username: req.body.username,
+        password: req.body.password
     }
-});
+    }).then(function(){//run your calllback here
+        console.log('Created');
+      console.log("callback!!");
+      res.status(201).send(req.body);
+    }).catch(err => {
+      res.status(500).send("Error -> " + err);
+    });
 
-   
     //res.render(path.join("../public/views/crudUsers/crear.html"));
 
 });
