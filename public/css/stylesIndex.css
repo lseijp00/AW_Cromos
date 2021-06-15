@@ -15,7 +15,7 @@ body {
 }
 
 #registrarseRedirect:hover {
-    color: #007bff;
+    color: rgb(0, 172, 238);
     text-decoration: none;
     cursor: pointer;
 }
@@ -75,4 +75,33 @@ input:focus {
 input[type="submit"]:hover {
     opacity: 1;
     cursor: pointer;
+}
+
+.footerContainer{
+    justify-content: flex-end;
+    height: 40vh;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    align-items: flex-end;
+
+}
+
+.contenedorPublicidad{
+    padding:1rem;
+}
+    .contenedorPublicidad i{
+        font-size:50px;
+        margin-right: 1rem;
+        color:black
+    }
+
+.quitarSubrayadoTwitter:hover{
+    color:rgb(0, 172, 238);
+    text-decoration: none;
+}
+.quitarSubrayadoGithub:hover{
+    color:rgb(110, 84, 148);
+    text-decoration: none;
 }
