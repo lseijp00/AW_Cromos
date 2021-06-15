@@ -24,7 +24,12 @@ a:hover{
     display: flex;
     flex-direction: row;
 }
-
+.contenedorArribaAdmin{
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px blanchedalmond solid;
+    
+}
     .contenedorTitulo{
         text-align: center;
         padding:3rem;
@@ -49,9 +54,9 @@ a:hover{
     }
     .contenedorAdminVacio{
         display:flex;
-        width: 72vw;
+        width:0;
         flex-direction: column;
-
+        justify-content: flex-end;
         border-bottom:blanchedalmond solid 1px;
     }
         .horizontal{
@@ -199,3 +204,8 @@ a:hover{
     .contenedorUsuariosVer li{
         margin-top: 1vh;
     }   
+.contenedorCerrarSesion{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 55vw;
+}
