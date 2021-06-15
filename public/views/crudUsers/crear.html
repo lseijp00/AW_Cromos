@@ -84,11 +84,7 @@ a<!DOCTYPE html>
                   >Eliminar cromos</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="botonesMenu" href="/taskCromos/editar"
-                  >Editar cromos</a
-                >
-              </li>
+             
             </ul>
           </nav>
         </div>
@@ -101,7 +97,11 @@ a<!DOCTYPE html>
                 Es necesario rellenar todos los campos
               </p>
 
-              <form class="form" method="post" action="/tasksUsers/crearUser">
+              <form
+                class="form"
+                method="post"
+                action="/tasksUsers/crearUser"
+              >
                 <input
                   type="text"
                   class="name"
@@ -109,16 +109,16 @@ a<!DOCTYPE html>
                   placeholder="Nombre"
                   required
                 />
-                <p class="name-help"></p>
+                <p class="name-help"> </p>
 
                 <input
                   type="text"
                   class="name"
-                  name="lastname"
+                  name="lastName"
                   placeholder="Apellidos"
                   required
                 />
-                <p class="name-help"></p>
+                <p class="name-help"> </p>
 
                 <input
                   type="text"
@@ -127,7 +127,9 @@ a<!DOCTYPE html>
                   placeholder="Nombre de usuario"
                   required
                 />
-                <p class="name-help"></p>
+                <p class="name-help">
+             
+                </p>
 
                 <input
                   type="password"
@@ -136,14 +138,11 @@ a<!DOCTYPE html>
                   placeholder="Password"
                   required
                 />
-                <p class="name-help"></p>
-                <input type="radio" id="user" name="user" value="0" />
-                <label for="user" style="color: rgb(233, 213, 213);">User</label
-                ><br />
-                <input type="radio" id="admin" name="user" value="1" />
-                <label for="user" style="color: rgb(233, 213, 213);"
-                  >Admin</label
-                ><br />
+                <p class="name-help"> </p>
+                <input type="radio" id="user" name="user" value="0">
+                <label for="user" style="color: rgb(233, 213, 213);">User</label><br>
+                <input type="radio" id="admin" name="user" value="1">
+                <label for="user" style="color: rgb(233, 213, 213);">Admin</label><br>
                 <input type="submit" class="submit" value="Crear" />
               </form>
             </div>
