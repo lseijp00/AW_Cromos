@@ -23,7 +23,9 @@ app.engine('html', require('ejs').renderFile);
 
 //ROUTES
 // Añadiendo el primer parametro decimos que siempre empiezan las rutas por :/tasks
-app.use('/tasks', require('./app/routes/tasks')); //Cargando el modulo de tareas CRUD
+app.use('/tasksCromos', require('./app/routes/tasksCromos')); //Cargando el modulo de tareas CRUD Cromos
+app.use('/tasksUsers', require('./app/routes/tasksUsers')); //Cargando el modulo de tareas CRUD
+
 
 
 //sweetalert2
@@ -106,18 +108,23 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
     
     //devolvera null si no existe el usuario
     const user = await users.findOne({ where: { username:username,password:password } });
-    console.log("USUARIO "+user.username);
-    console.log("PASSWORD " +user.password);
+
+   
 
     if (user === null) {
         console.log('Not found!');
-
+       
         res.render(path.join(__dirname + '/public/views/index.html'), {
             isAuth:false,
             username:username
           });
-   
+          
     } else if(user.admin == 0){
+
+        console.log("USUARIO "+user.username);
+        console.log("PASSWORD " +user.password);
+        console.log("Admin " +user.admin);
+        console.log("Admin " +user.firstname);
 
         req.session.loggedin = true;
         req.session.username = username;

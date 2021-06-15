@@ -72,6 +72,14 @@ a:hover{
     .menu ul{
         text-align: center;
     }
+    .menu .horizontal li{
+        list-style-type: none;
+        float: left;
+        text-align: center;
+        display: inline;
+        flex-direction: column;
+       
+    }
     .menu li{
         list-style-type: none;
         display:flex;
