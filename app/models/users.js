@@ -8,6 +8,7 @@ class Users extends Model{}
           autoIncrement: true,
           primaryKey: true,
           autoIncrement: true,
+          unique: true,
           type: DataTypes.INTEGER
       },
 
@@ -22,16 +23,19 @@ class Users extends Model{}
       },
 
       username: {
-          type: DataTypes.TEXT
+          type: DataTypes.TEXT,
+          notEmpty: true
       },
 
       password: {
           type: DataTypes.STRING,
-          allowNull: false
+          notEmpty: true
+          
       },
       admin: {
           type:DataTypes.INTEGER,
-          allowNull: false
+          notEmpty: true
+         
       }
     },{
     

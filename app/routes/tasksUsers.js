@@ -18,7 +18,7 @@ router.post("/crearUser", async(req,res) => {
 
    const user = req.body.user;
 
-   await users.findOrCreate({
+   await users.findOne({
     where: {
       username: req.body.username
     },
@@ -27,16 +27,17 @@ router.post("/crearUser", async(req,res) => {
       created = result[1]; // boolean stating if it was created or not
 
     if (!created) { // false if author already exists and was not created.
-      console.log('Author already exists');
+      console.log('User already exists');
       
     }else{
-        console.log('Not exists');
+        console.log('User NOT exists');
+        
         users.create({
             username: req.body.username,
             password: req.body.password,
             firstname: req.body.firstname,
             lastname:req.body.lastName,
-            admin: 0
+            admin: parseInt(req.body.user)
         }).then((user) => res.status(201).send(user));
         console.log('Created');
         
@@ -44,7 +45,7 @@ router.post("/crearUser", async(req,res) => {
 });
 
    
-    res.render(path.join("../public/views/crudUsers/crear.html"));
+    //res.render(path.join("../public/views/crudUsers/crear.html"));
 
 });
 
