@@ -21,6 +21,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -29,17 +30,39 @@
         <form method="post" class="contenedorFormulario centrarItems" action="/public/views/paginaColeccionCromos.html">
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre de usuario</label>
-                <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Nombre de usuario">
+                <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Nombre de usuario">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Contraseña</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Contraseña">
             </div>
             <a id="registrarseRedirect" href="/views/paginaRegistrarse.html">Regístrate aquí</a>
             <input type="submit" class="submit" value="Iniciar sesión">
-        </form>    
+        </form>
     </div>
+    <div class="footerContainer">
+        <div class="contenedorPublicidad">
+            <a class="quitarSubrayadoTwitter" target="_blank" href="https://twitter.com/KioskoSeijas">
+                <i font-size:50px" class="fa fa-twitter quitarSubrayadoTwitter"></i>
+            </a>
+            <a class="quitarSubrayadoGithub" target="_blank" href="https://github.com/lseijp00/AW_Cromos">
+                <i font-size:50px" class="fa fa-github quitarSubrayadoGithub"></i>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <div class="bg-light">
+            <div class="container text-center">
+              <p class="text-muted mb-0 py-2">Diseñado por Marco Speranza López y Luis Seijas Prieto </p>
+            </div>
+          </div>
+    </footer>
 
+    <script>
+        const storage = window.localStorage;
+    </script>
 </body>
+
 </html>

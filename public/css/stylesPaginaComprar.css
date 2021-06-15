@@ -33,19 +33,21 @@ h1 {
  
 .contenedorFlecha{
     display: block;
-    min-width: 75%;
+    max-width: 85%;
     justify-content: start;
     font-size:3rem;
 }
     .quitarSubrayado:hover{
         text-decoration: none;
     }
+    .hoverFlecha:hover{
+        cursor: pointer;
+    }
 
 
 .cambiarColeccion{
     display:inline-block;
     padding:1rem;
-    margin-top:1.5rem;
     margin-left: 70vw;
     font-size: 20px;
     color:whitesmoke;
@@ -64,11 +66,11 @@ h1 {
     display:flex;
     flex-direction: row;
     align-items: center;
-    width: 55%;
+    width: 60%;
 }
     .separador {
         margin-right: 2px;
-        margin-top: 80px;
+        margin-top: 85px;
         width: 50%;
         background-color: whitesmoke;
         margin-bottom: 88px;
@@ -153,3 +155,11 @@ h1 {
         z-index: 50;
     }
 
+    body::-webkit-scrollbar {
+        width: 0.6em;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: rgb(85, 82, 82);
+      outline: 1px solid whitesmoke;
+    }

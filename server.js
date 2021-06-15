@@ -92,8 +92,6 @@ app.post("/public/views/paginaRegistrarse.html", async (req,res)=>{
         firstname: req.body.firstname,
         lastname:req.body.lastName
     }).then((user) => res.status(201).send(user)).catch((error) => {
-        console.log(error);
-        res.status(400).send(error);
     });
     res.render(path.join(__dirname + '/public/views/index.html'));
 
@@ -122,14 +120,11 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res)=>{
         console.log("PASSWORD " +user.password);
         req.session.loggedin = true;
         req.session.username = username;
-        req.session.usuario='Luis Seijas'
-        req.session.rol='Admin'
         req.session.visitas= req.session.visitas ? ++req.session.visitas : 1;
         if(req.session.username!=undefined){
             res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
-                isAuth:true,
-                visitas:req.session.visitas,
-                usuario:req.session.usuario
+
+                user:user
             });
         }
 

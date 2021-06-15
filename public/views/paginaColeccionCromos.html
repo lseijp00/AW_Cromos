@@ -59,22 +59,21 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Puntos de mi cuenta</h5>
+                                            <h5  id="insertarNombreUsuario" class="modal-title" id="exampleModalLabel">Puntos de mi cuenta</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <div class="modal-body" style="font-size: 25px;">
+                                        <div id="puntosUsuario" class="modal-body" style="font-size: 25px;">
                                             Tengo 15 puntos
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary"
-                                                data-dismiss="modal">Close</button>
+                                                data-dismiss="modal">Cerrar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </li>
                         <li class="nav-item">
                             <button id="botonActividadPuntos" class="boton tacharBoton"
@@ -87,7 +86,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 2 puntos
+                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 5 puntos
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -133,12 +132,12 @@
                                 data-target="#exampleModal3">
                                 Actividad 2 para ganar puntos
                             </button>
-                            <div class="modal fade" style="margin-top:4%;" id="exampleModal3" tabindex="-1"
+                            <div class="modal fade" style="margin-top:1vh;" id="exampleModal3" tabindex="-1"
                                 role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 2 puntos
+                                            <h5 class="modal-title" id="exampleModalLabel">Pregunta para ganar 5 puntos
                                             </h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
@@ -186,33 +185,23 @@
 
             <div class="contenedorCromos mt-5 ml-5">
                 <div class="contenedorColecciones">
-                    <h3 style="color:whitesmoke;">Tu colección de Oliver y Benji consta de:</h3>
-                    <p style="color:whitesmoke;">0/10 cromos</p>
-                    <h3 class="mt-5" style="color:whitesmoke;">Tu colección de Harry Potter consta de:</h3>
-                    <p style="color:whitesmoke;">0/10 cromos</p>
+                    <h3 style="color:whitesmoke;">Colección de Oliver y Benji</h3>
+                    <p class="cantidadCromos" style="color:whitesmoke;">0/10 cromos</p>
+                    <b id="completoOliver" hidden style="color:green" >¡Colección completa!</b>
+
+                    <h3 class="mt-5" style="color:whitesmoke;">Colección de Harry Potter</h3>
+                    <p class="cantidadCromos" style="color:whitesmoke;">0/10 cromos</p>
+                    <b id="completoHarry" hidden display="none" style="color:green" >¡Colección completa!</b>
+
                 </div>
             </div>
         </div>
     </div>
 
-
-    <script>
-        function miFuncion() {
-            var response = grecaptcha.getResponse();
-
-            if (response.length == 0) {
-                alert("Captcha no verificado")
-            } else {
-                alert("Captcha verificado");
-            }
-        }
-    </script>
-
     <script>
 
         var elemOpciones = document.getElementsByClassName("opcionBoton");
         var botonActividadPuntos = document.getElementById("botonActividadPuntos");
-
 
         function addCss(fileName) {
 
@@ -229,6 +218,33 @@
 
         //localStorage 
         const storage = window.localStorage;
+        
+
+        var nombreUsuario = <%- JSON.stringify(user.username) %>;
+
+        storage.setItem(`soy${nombreUsuario}`,`${nombreUsuario}`);
+        //si ya existe el item, si tenemos un if, al refrescar la pagina se nos resetea el valor del item
+        var existe = storage.getItem(`puntos${nombreUsuario}`);
+
+        if(existe!=null){
+            console.log("Ya existe el item")
+        }else{
+            storage.setItem(`puntos${nombreUsuario}`, "30")
+        }
+
+        var existeAux = storage.getItem(`aux${nombreUsuario}`);
+
+        if(existeAux!=null){
+            storage.setItem(`puntos${nombreUsuario}`,`${existeAux}`);
+        }else{
+            console.log("no se ha iniciado sesion anteriormente con este usuario")
+        }
+
+        
+
+        //recogemos los puntos del localstorage y lo pasamos a numero entero para operar
+        var keyString = storage.getItem(`puntos${nombreUsuario}`);
+        var keyInt = parseInt(keyString);
 
         //si pulsa Roma
         function fondoVerde() {
@@ -238,9 +254,15 @@
             elemOpciones[3].disabled = "true"
             botonActividadPuntos.disabled = "true"
             addCss("/css/tacharBoton.css")
-            storage.setItem("preguntaUtilizada1", "true")
-
+            storage.setItem(`preguntaUtilizada1${nombreUsuario}`, "true")
+            keyInt+=5;
+            var auxPuntos = String(keyInt);
+            storage.setItem(`puntos${nombreUsuario}`, `${auxPuntos}`);
+            //para que se refresca la puntuacion
+            $('#exampleModal3').modal('hide');
+            setTimeout(function(){location.reload()}, 1500);
         }
+
         //si pulsa Madrid, Oslo o París
         function fondoRojo() {
             elemOpciones[0].style.backgroundColor = "green"
@@ -253,9 +275,13 @@
             elemOpciones[3].disabled = "true"
             botonActividadPuntos.disabled = "true"
             addCss("/css/tacharBoton.css")
-            storage.setItem("preguntaUtilizada1", "true")
+            storage.setItem(`preguntaUtilizada1${nombreUsuario}`, "true")
+            //para que se refresca la puntuacion
+            $('#exampleModal3').modal('hide');
+            setTimeout(function(){location.reload()}, 1500);
         }
 
+        //si pulsa Carro
         function fondoVerdeCaptcha() {
             elemOpciones[4].style.backgroundColor = "green"
             elemOpciones[5].disabled = "true"
@@ -263,10 +289,15 @@
             elemOpciones[7].disabled = "true"
             botonActividadPuntosCaptcha.disabled = "true"
             addCss("/css/tacharBoton2.css")
-            storage.setItem("preguntaUtilizada2", "true")
-
+            storage.setItem(`preguntaUtilizada2${nombreUsuario}`, "true");
+            keyInt+=5;
+            var auxPuntos = String(keyInt);
+            storage.setItem(`puntos${nombreUsuario}`, `${auxPuntos}`);
+            $('#exampleModal2').modal('hide');
+            setTimeout(function(){location.reload()}, 1500);
         }
 
+        //si pulsa lo d
         function fondoRojoCaptcha() {
             elemOpciones[4].style.backgroundColor = "green"
             elemOpciones[4].disabled = "true"
@@ -278,25 +309,106 @@
             elemOpciones[7].disabled = "true"
             botonActividadPuntosCaptcha.disabled = "true"
             addCss("/css/tacharBoton2.css")
-            storage.setItem("preguntaUtilizada2", "true")
+            storage.setItem(`preguntaUtilizada2${nombreUsuario}`, "true")
+            $('#exampleModal2').modal('hide');
+            setTimeout(function(){location.reload()}, 1500);
         }
 
         //cuando se cambie de pagina, queremos que siga tachado el boton
-        var preguntaUtilizada = storage.getItem("preguntaUtilizada");
-        if (preguntaUtilizada == "true") {
-            fondoVerde()
-            fondoRojo()
+        var preguntaUtilizada1 = storage.getItem(`preguntaUtilizada1${nombreUsuario}`);
+        if (preguntaUtilizada1 == "true") {
+            botonActividadPuntos.disabled = "true"
+            addCss("/css/tacharBoton.css")
+            var keyString = storage.getItem(`puntos${nombreUsuario}`);
+            var keyInt = parseInt(keyString);
+            var auxPuntos = String(keyInt);
+            storage.setItem(`puntos${nombreUsuario}`, `${auxPuntos}`);
         }
+        var preguntaUtilizada2 = storage.getItem(`preguntaUtilizada2${nombreUsuario}`);
+        if (preguntaUtilizada2 == "true") {
+            botonActividadPuntosCaptcha.disabled = "true"
+            addCss("/css/tacharBoton2.css")
+        }
+
+
+        //actualizar ventana modal puntos nombre usuario
+        var insertarNombreUsuario = document.getElementById("insertarNombreUsuario");
+        insertarNombreUsuario.innerHTML = `Puntos de mi cuenta <strong>${nombreUsuario}</strong>`;
+
+
+        //actualizar ventana modal puntos
+        var elementoPuntos = document.getElementById("puntosUsuario");
+        var numeroPuntos = storage.getItem(`puntos${nombreUsuario}`);
+        console.log(numeroPuntos);
+        if(numeroPuntos>=0){
+            elementoPuntos.innerHTML=`Tengo ${numeroPuntos} puntos`;
+        }else{
+            elementoPuntos.innerHTML=`Su cuenta se ha quedado sin puntos`;
+
+        }
+
+        //poner a 0 los puntos aunque esté en negativo para sumar puntos (con las acitivdades) desde 0 y no desde -5 por ejemplo
+        console.log(numeroPuntos)
+        if(numeroPuntos<0){
+            storage.setItem(`puntos${nombreUsuario}`,`0`);
+        }
+    
+
+        //mostrar numero de cromos que se han comprado de la coleccion
+        var contadorItemsCromosOliver=0;
+        var contadorItemsCromosHarry=0;
+
+        for(var i=0, len=localStorage.length; i<len; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage[key];
+            
+            if(key.includes(`cromoSesion${nombreUsuario}Oliver`)){
+                contadorItemsCromosOliver ++;
+            }
+            if(key.includes(`cromoSesion${nombreUsuario}Harry`)){
+                contadorItemsCromosHarry ++;
+            }
+        }
+        var arrayElem = document.getElementsByTagName("p");
+        arrayElem[0].innerHTML= contadorItemsCromosOliver+"/10 cromos";
+        arrayElem[1].innerHTML = contadorItemsCromosHarry+"/10 cromos";
+
+        if(arrayElem[0].innerHTML=="10/10 cromos"){
+            var elem=document.getElementById("completoOliver");
+            elem.removeAttribute("hidden"); 
+        } if(arrayElem[1].innerHTML=="10/10 cromos"){
+            var elem=document.getElementById("completoHarry");
+            elem.removeAttribute("hidden"); 
+        }
+
 
         //si se presionar el boton de cerrar sesion, se reestablecen 
         //las cookies para que otro usuario pueda responder a la pregunta
         $('#cerrarSesion').click(function () {
-            storage.clear()
+
+            var numPuntos=storage.getItem(`puntos${nombreUsuario}`);
+            storage.setItem(`aux${nombreUsuario}`,`${numPuntos}`);
+
+            for(var i=0, len=localStorage.length; i<len; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+                
+                if(key.includes('puntos')){
+                    storage.removeItem(`${key}`);
+                }
+                if(key.includes('soy')){
+                    storage.removeItem(`${key}`);
+                }
+            }
+            //storage.removeItem(preguntaUtilizada1);
+            //storage.removeItem(preguntaUtilizada2);
+            //storage.clear()
         });
 
 
     </script>
 
+    
 </body>
 
 </html>
