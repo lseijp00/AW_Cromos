@@ -105,8 +105,6 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res) =>{
     //devolvera null si no existe el usuario
     const user = await users.findOne({ where: { username:username,password:password } });
 
-   
-
     if (user === null) {
         console.log('Not found!');
        
@@ -122,16 +120,9 @@ app.post("/public/views/paginaColeccionCromos.html", async(req,res) =>{
         console.log("Admin " +user.admin);
         console.log("Admin " +user.firstname);
 
-        req.session.loggedin = true;
-        req.session.username = username;
-        req.session.usuario='Luis Seijas'
-        req.session.rol='Admin'
-        req.session.visitas= req.session.visitas ? ++req.session.visitas : 1;
         if(req.session.username!=undefined){
             res.render(path.join(__dirname + '/public/views/paginaColeccionCromos.html'), {
-                isAuth:true,
-                visitas:req.session.visitas,
-                usuario:req.session.usuario
+              user: user
             });
         }
 
