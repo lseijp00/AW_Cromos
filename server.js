@@ -149,4 +149,3 @@ app.listen(app.get('puerto'), function() {
     } catch (error) {
         console.error('Unable to connect to the database:', error);
     }
-});

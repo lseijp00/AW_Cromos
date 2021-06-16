@@ -149,7 +149,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Volcando datos para la tabla cromos.users: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `username`, `password`, `admin`, `createdAt`, `updatedAt`) VALUES
-	(1, 'admid', 'admin', 'admin', 'admin', 1, '2021-06-15 23:17:08', '2021-06-15 23:17:08');
+	(1, 'admin', 'admin', 'admin', 'admin', 1, '2021-06-15 23:17:08', '2021-06-15 23:17:08'),
+	(2, 'Luis', 'Seijas', 'lseijp00', 'secret', 0, '2021-06-15 23:17:08', '2021-06-15 23:17:08'),
+	(3, 'Marco', 'Speranza', 'marco', 'secret', 0, '2021-06-15 23:17:08', '2021-06-15 23:17:08');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
