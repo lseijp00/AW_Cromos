@@ -11,10 +11,8 @@ router.get("/eliminar", (req, res) => {
   res.render(path.join("../public/views/crudUsers/eliminar.html"));
 });
 
-
 router.get('/logout',(req,res) => {
       res.redirect('/');
-
 });
 
 
@@ -75,12 +73,12 @@ router.post("/crearUser", async(req,res) => {
     }).then(function(){ //run your calllback here
       
       console.log("In callback created!!");
-      res.status(201).send(req.body);
+      //res.status(201).send(req.body);
     }).catch(err => {
       res.status(500).send("Error -> " + err);
     });
 
-    //res.render(path.join("../public/views/crudUsers/crear.html"));
+    res.render(path.join("../public/views/crudUsers/crear.html"));
 
 });
 

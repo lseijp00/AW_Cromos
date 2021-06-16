@@ -15,7 +15,8 @@ class Cromos extends Model {}
      type: DataTypes.STRING
    },
    imagen: {
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    notEmpty: true
   },
    puntos: {
      type: DataTypes.INTEGER
