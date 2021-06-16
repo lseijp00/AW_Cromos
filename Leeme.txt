@@ -1,0 +1,28 @@
+1. Crear base de datos y ejecutar la query situada en el Github en el directorio /app/db/ads.sql
+
+2. Servidor Node.js encargado de desplegar la aplicación web
+
+3. Instalación de dependencias dentro de la terminal de Node
+
+	npm install
+
+4. Instalación de librerias que se utilizan en la aplicación que el nodejs necesite (la propia consola mostrará las dependencias necesarias a instalar) 
+
+	Ejemplo:
+
+	npm install express --save
+	npm install express-session
+	npm install mysql2 --save
+	npm install sweetalert2
+	npm install sequalize --save
+
+5. Para poder ejecutar la aplicación, con la terminal situarse en el directorio donde se encuentre el archivo server.js y ejecutar los comandos
+	
+	npm run start
+
+	y
+
+	npm run dev
+
+
+Enlace al proyecto en Github: https://github.com/lseijp00/AW_Cromos

@@ -43,24 +43,34 @@ _Explica como ejecutar las pruebas automatizadas para este sistema_
 
 ## Deployment 📦
 
-_1. Servidor mysql con la base de datos correspodiente al fichero ads.sql, en el que se encuentra toda la base de datos_
+_1. Servidor mysql con la base de datos correspodiente al fichero /app/db/ads.sql, en el que se encuentra toda la base de datos_
 
 _2. Servidor Node.js encargado de deslpegar la aplicación web_
 
-_3. Instalación de dependencias dentro de la terminal de Node_
+_3. Instalación de dependencias dentro de la terminal de Node, además de tener instalado el gestor de paquetes npm_
 
 ```
 npm install
 ```
-_3. Instalación de librerias que se utilizan en la aplicación que el nodejs necesite Ejemplo:_
+_4. Instalación de librerias que se utilizan en la aplicación que el nodejs necesite Ejemplo:_
 
 ```
+npm instal node
 npm install express --save
 npm install mysql2 --save
 npm install axios --save
 npm install sequalize --save
 ```
 
+_5. Para poder ejecutar la aplicación, con la terminal situarse en el directorio donde se encuentre el archivo server.js y ejecutar los comandos_
+	
+    ```
+	npm run start
+    ```
+	
+    ```
+	npm run dev
+    ```
 
 ## Construido con 🛠️
 
@@ -75,7 +85,7 @@ _Herramientas utilizadas para nuestro proyecto_
 ## Versionado 📌
 
 * Version Alpha v1
-
+* Enlace al proyecto en Github: https://github.com/lseijp00/AW_Cromos
 ## Autores ✒️
 
 * **Marco Speranza López ** 

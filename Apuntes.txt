@@ -1,7 +1,0 @@
-Mongoose es la librería más popular de Node que nos permite realizar consultas con MongoDB.
-Esta librería nos permitirá definir nuestros esquemas, modelos, validadores y relaciones entre otras cosas.
-
-Realmente no hay relación entre express y mongoose, ya que ambas son librerías independientes. Una nos permite realizar una aplicación completa mientras que la otra nos permite recuperar datos de nuestra base de datos
-
-Para instalar mongo MongoDB
-https://www.youtube.com/watch?v=gkCnXcxHC4o

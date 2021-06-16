@@ -1,0 +1,14 @@
+1) USUARIO
+
+	Nombre usuario: lseijp00
+	Contraseña: secret
+
+2) USUARIO
+
+	Nombre usuario: marco
+	Contraseña: secret
+
+3) ADMINISTRADOR
+	
+	Nombre usuario: admin
+	Contraseña: admin
