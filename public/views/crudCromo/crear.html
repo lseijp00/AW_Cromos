@@ -87,7 +87,7 @@
             <label for="quantity" style="color:blanchedalmond;font-size:16px;">  Precio &nbsp &nbsp  </label>
             <input type="number" id="quantity" name="quantity" min="1" max="5">
           </p>
-            <input type="submit" class="submit submitAdminAñadir" value="Crear" />
+            <input type="submit" class="submit submitAdminAñadir"  onclick="hizoClick()" value="Crear" />
           </form>
         </div>
 
@@ -95,7 +95,11 @@
     </div>
   </div>
 
-  <script></script>
+  <script>
+    function  hizoClick(){
+      alert("Usuario creado");
+    }
+  </script>
 </body>
 
 </html>

@@ -82,10 +82,10 @@
             <input type="text" class="name inputAdminAñadir" name="firstname" placeholder="Nombre" required />
             <p class="name-help"> </p>
 
-            <input type="text" class="name inputAdminAñadir" name="lastName" placeholder="Apellidos" required />
+            <input type="text" class="name inputAdminAñadir" name="lastname" placeholder="Apellidos" required />
             <p class="name-help"> </p>
 
-            <input type="text" class="name inputAdminAñadir" name="username" placeholder="Nombre de usuario" required />
+            <input type="text" class="name inputAdminAñadir" id="username" name="username" placeholder="Nombre de usuario" value="" required />
             <p class="name-help">
 
             </p>
@@ -97,15 +97,32 @@
             <label for="user" style="color: rgb(233, 213, 213);">Usuario</label><br>
             <input type="radio" id="admin" name="user" value="1">
             <label for="user" style="color: rgb(233, 213, 213);">Administrador</label><br>
-            <input type="submit" class="submit submitAdminAñadir" value="Crear" />
+            <input type="submit" class="submit submitAdminAñadir"  onclick="hizoClick()" value="Crear" />
           </form>
         </div>
 
       </div>
     </div>
   </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
 
-  <script></script>
+    function  hizoClick(){
+
+      const userdata = { id: document.getElementById("username").value };
+      axios
+        .post("http://localhost:8888/tasksUsers/comprobarCreado", userdata)
+        .then((response) => {
+
+          
+        
+        })
+        .catch((err) => {
+          
+          console.log(err);
+        });
+    }
+  </script>
 </body>
 
 </html>

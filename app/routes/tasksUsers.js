@@ -51,34 +51,51 @@ router.get("/ver", async (req, res) => {
   });
 
 
+  router.post("/comprobarCreado", async(req,res) => {
+
+    Users.findOne({ where : {
+        username : req.body.id
+    }}).then((respuesta) =>{
+        console.log(respuesta);
+        if(respuesta == 1){
+            res.send("Creado correctamente");
+        }else{
+            res.send("Existente en la base de datos");
+        }
+    }).catch(err => {
+        res.status(404).send("Error -> " + err);
+      });;
+  });
 
 // Post en crear
 router.post("/crearUser", async(req,res) => {
 
+    console.log(req.body.username);
   await Users.findOrCreate({
     where: {//object containing fields to found
 
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
+       
         username: req.body.username,
-        password: req.body.password
+        
     },
     defaults: {//object containing fields and values to apply
 
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        admin: req.body.user,
     }
     }).then(function(){ //run your calllback here
       
       console.log("In callback created!!");
       //res.status(201).send(req.body);
+     // res.render(path.join("../public/views/crudUsers/crear.html"));
     }).catch(err => {
       res.status(500).send("Error -> " + err);
     });
 
-    res.render(path.join("../public/views/crudUsers/crear.html"));
+  
 
 });
 
