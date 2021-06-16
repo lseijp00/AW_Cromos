@@ -11,6 +11,13 @@ router.get("/eliminar", (req, res) => {
   res.render(path.join("../public/views/crudUsers/eliminar.html"));
 });
 
+
+router.get('/logout',(req,res) => {
+      res.redirect('/');
+
+});
+
+
 router.post("/eliminar", (req, res) => {
     Users.destroy({ where : {
         username : req.body.id
@@ -40,6 +47,7 @@ router.get("/ver", async (req, res) => {
    }).catch(err => {
     res.status(404).send("Error -> " + err);
   });
+
 
     
   });
