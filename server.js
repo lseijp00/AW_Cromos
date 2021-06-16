@@ -2,7 +2,7 @@
 
 //Common JS -> Aunque con babel podemos pasarlo
 const express = require('express');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 const app = express();
@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 //MIDDLEWARES
-app.use(morgan('tiny')); //HTTP REQUEST LOGGER
+//app.use(morgan('tiny')); //HTTP REQUEST LOGGER
 app.use(cors()); //CONNECT TO EXPRESS
 app.use(express.urlencoded({ extended: true })); //CODIFICACIÓN DE LA URL
 app.use(express.json()); // TRATA DE DATOS EN JSON
