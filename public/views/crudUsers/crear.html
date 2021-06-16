@@ -79,25 +79,25 @@
         <div class="wrapper">
 
           <form class="form" method="post" action="/tasksUsers/crearUser">
-            <input type="text" class="name inputAdminAñadir" name="firstname" placeholder="Nombre" required />
+            <input type="text" class="name inputAdminAñadir" name="firstname" placeholder="Nombre"  onblur="comporbarInput()" required />
             <p class="name-help"> </p>
 
-            <input type="text" class="name inputAdminAñadir" name="lastname" placeholder="Apellidos" required />
+            <input type="text" class="name inputAdminAñadir" name="lastname" placeholder="Apellidos" onblur="comporbarInput()"required />
             <p class="name-help"> </p>
 
-            <input type="text" class="name inputAdminAñadir" id="username" name="username" placeholder="Nombre de usuario" value="" required />
+            <input type="text" class="name inputAdminAñadir" id="username" name="username" placeholder="Nombre de usuario"onblur="comporbarInput()" value="" required />
             <p class="name-help">
 
             </p>
 
-            <input type="password" class="name inputAdminAñadir" name="password" placeholder="Password" required />
+            <input type="password" class="name inputAdminAñadir" name="password" placeholder="Password" onblur="comporbarInput()"required />
             <p class="name-help"> </p>
             
-            <input type="radio" id="user" name="user" value="0">
+            <input type="radio" id="user" name="user" value="0" onblur="comporbarInput()"required>
             <label for="user" style="color: rgb(233, 213, 213);">Usuario</label><br>
-            <input type="radio" id="admin" name="user" value="1">
+            <input type="radio" id="admin" name="user" value="1" onblur="comporbarInput()"required>
             <label for="user" style="color: rgb(233, 213, 213);">Administrador</label><br>
-            <input type="submit" class="submit submitAdminAñadir"  onclick="hizoClick()" value="Crear" />
+            <input type="submit" id="submit" class="submit submitAdminAñadir" onclick="hizoClick()" value="Crear" disabled  />
           </form>
         </div>
 
@@ -107,6 +107,29 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
 
+
+function comporbarInput(){
+  var arrayElementos = document.getElementsByTagName("input");
+   // console.log(arrayElementos.length);
+
+   var contador = 0;
+    for(let i = 0; i < 6; i++){
+      var string = arrayElementos[i].value
+      if(string.length > 0 ){
+     
+        //console.log(contador);
+        contador++;
+      }
+    }
+    if(contador == 6)
+      document.getElementById("submit").disabled = false;
+    else
+    document.getElementById("submit").disabled = true;
+
+}
+
+    
+
     function  hizoClick(){
 
       const userdata = { id: document.getElementById("username").value };
@@ -114,13 +137,19 @@
         .post("http://localhost:8888/tasksUsers/comprobarCreado", userdata)
         .then((response) => {
 
-          
+          location.reload();
+          if(response.data == 1)
+          alert("Creado correctamente");
+          else
+          alert("No creado, ya existente en la base de datos");
+         
         
         })
         .catch((err) => {
           
           console.log(err);
         });
+      alert("Usuario creado");
     }
   </script>
 </body>

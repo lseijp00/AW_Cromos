@@ -57,11 +57,7 @@ router.get("/ver", async (req, res) => {
         username : req.body.id
     }}).then((respuesta) =>{
         console.log(respuesta);
-        if(respuesta == 1){
-            res.send("Creado correctamente");
-        }else{
-            res.send("Existente en la base de datos");
-        }
+        
     }).catch(err => {
         res.status(404).send("Error -> " + err);
       });;

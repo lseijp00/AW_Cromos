@@ -94,12 +94,13 @@
       axios
         .post("http://localhost:8888/tasksUsers/eliminar", userdata)
         .then((response) => {
-
-          if(response.data == 1)
+          console.log(response.data);
+          if(response.data == 1){
           alert("Eliminado correctamente");
-          else
+          }
+          else{
           alert("No existe en la base de datos");
-         
+          }
         
         })
         .catch((err) => {
