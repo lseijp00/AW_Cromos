@@ -1,0 +1,211 @@
+body {
+    background: url("/images/black_linen_v2.png");
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+a,ul,li{
+    color:black;
+    text-decoration: none;
+    list-style-type: none; 
+}
+a:hover{
+    text-decoration: none;
+    list-style-type: none; 
+}
+
+.contenedorGenerico{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedorArriba{
+    display: flex;
+    flex-direction: row;
+}
+.contenedorArribaAdmin{
+    display: flex;
+    flex-direction: row;
+    border-bottom:1px blanchedalmond solid;
+    
+}
+    .contenedorTitulo{
+        text-align: center;
+        padding:3rem;
+        width: 28vw;
+        background-color: blanchedalmond;
+    }
+
+    .gestionarUsuarios{
+        text-align: center;
+        width: 72vw;
+    }
+    .tituloCentro{
+        margin-right: 12vw;
+        padding-top:4vh;
+    }
+
+    .contenedorVacio{
+        display:flex;
+        justify-content: flex-end;
+        width: 72vw;
+        border-bottom:blanchedalmond solid 1px;
+    }
+    .contenedorAdminVacio{
+        display:flex;
+        width:0;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-bottom:blanchedalmond solid 1px;
+    }
+        .horizontal{
+            display:flex;
+            flex-direction: row;
+        }
+        .horizontal li{
+            justify-content: flex-end;
+            align-content: flex-end;
+            
+        }
+
+    .botonCerrarSesion{
+        display:flex;
+        align-items: flex-end;
+        margin-right: 7vw;
+        margin-bottom: 2vh;
+        font-size: 4rem;
+        padding:1rem;
+        color:blanchedalmond;
+    }
+    .botonCerrarSesion:hover{
+        text-decoration: none;
+        color:blanchedalmond;
+        font-size: 4.5rem;
+    }
+
+.contenedorAbajo{
+    display: flex;
+}
+
+    .contenedorVacioIzquierda{
+        height:100vh;
+        display:flex;
+        flex-direction: column;
+        width: 28vw;
+        border-right: blanchedalmond solid 1px;;
+    }
+    .menu{
+        margin-left: 12vw;
+        margin-top:2rem;
+    }
+    .menu ul{
+        text-align: center;
+    }
+    .menu li{
+        list-style-type: none;
+        display:flex;
+        flex-direction: column;
+    }
+    
+    .menu a[class="botonesMenu"],button[data-target="#exampleModal"],button[data-target="#exampleModal2"],button[data-target="#exampleModal3"]{
+        background-color: transparent;
+        border:none;
+        border-radius: 0;
+        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
+        width: 10rem;
+        color:blanchedalmond;
+        transition: 0.4s;
+        outline:none;
+    }
+
+    .menu a[class="botonesMenu"]:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+
+    }
+    .menu button[data-target="#exampleModal"]:hover,button[data-target="#exampleModal2"]:hover,button[data-target="#exampleModal3"]:hover{
+        text-decoration: none;
+        background-color: blanchedalmond;
+        color:black;
+        border:none;
+        outline:none;
+        cursor:pointer;
+    }
+    form a[class="botonesMenu"]{
+        margin-bottom: 2rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+.contenedorColecciones{
+    font-size:larger;
+    width:60vw;
+    display: flex;
+    margin-top:2vh;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.cantidadCromos{
+    width: 100%;
+    text-align: center;
+}
+
+
+.opcionBoton{
+    background-color: none;
+    outline:none;
+    padding:1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border-color:none;
+}
+
+.opcionBoton:focus{
+    outline: none;
+}
+
+
+.contenedorCromos{
+    display: flex; 
+    flex-direction: column;
+    justify-content: start;
+    margin-top:6vh;
+    text-align: center;
+    align-content: center;
+    width:54vw;
+}
+
+.inputAdminAñadir{
+    padding:0.5rem;
+    width: 15vw;
+}
+
+.submitAdminAñadir{
+    font-size: 20px;
+    border-radius: 5px;
+}
+.submitAdminAñadir:hover{
+    cursor: pointer;
+    background-color: rgb(0, 172, 238);;
+    color:black;
+}
+
+.contenedorUsuariosVer{
+    margin-right:5vh;
+    margin-top:5vh;
+    display: flex;
+    flex-direction: column;
+    font-size:larger
+} 
+    .contenedorUsuariosVer li{
+        margin-top: 1vh;
+    }   
+.contenedorCerrarSesion{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 55vw;
+}

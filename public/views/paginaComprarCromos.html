@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasatiempos</title>
+    <link rel="stylesheet" href="/css/stylesPaginaComprar.css" type='text/css'>
+    <link href="http://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body style="font-family: Gilroy-Regular;">
+    <div class="contenedorGenerico">
+        <div class="contenedorFlecha">
+            <form id="loginform" method="post" action="/public/views/paginaColeccionCromos.html">
+                <a onclick="window.history.back();">
+                    <i class="fa fa-arrow-left hoverFlecha" style="color:whitesmoke;"></i>
+                </a>
+            </form>
+            <b id="mostrarPuntosPantalla" style="color:whitesmoke;font-size:24px;margin-left: 69vw;">Sus puntos: </b>
+            <a style="color:whitesmoke;" class="cambiarColeccion" onclick="cambiarCromos()">
+                Otra colección
+            </a>
+        </div>
+
+        <div class="contenedorTitulo">
+            <h1 class="titulo" style="color:whitesmoke;font-size: 4rem;">COMPRAR CROMOS</h1>
+        </div>
+
+        <div class="contenedorSeparador">
+            <div class="separador">&nbsp</div>
+            <i class="fa fa-square fa-lg cuadradoPequeño"></i>
+            <i class="fa fa-square fa-2x cuadradoGrande"></i>
+            <i class="fa fa-square fa-lg cuadradoPequeño"></i>
+            <div class="separador">&nbsp</div>
+        </div>
+        <div class="container">
+
+            <div class="row ">
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="http://www.sopitas.com/wp-content/uploads/2016/03/PromoHP7_Harry_Potter-e1458489951893.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">5</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Harry Potter</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton1" onclick="alertSweet(1)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://static.vix.com/es/sites/default/files/1/10_datos_malos_de_dumbledore_de_harry_potter.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">5</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Albus Dumbledore</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton2" onclick="alertSweet(2)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://sites.google.com/site/harrypotterzhao/_/rsrc/1417473833602/protagonistas/hermione-granger/20140502133849_Cinue_thumb_600_0.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Hermione Granger</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton3" onclick="alertSweet(3)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="http://3.bp.blogspot.com/-EtcSnwjlYyk/Uc9FjWKVwiI/AAAAAAAAA0o/ut5uz7WX0RM/s686/ass.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Ron Wesley</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton4" onclick="alertSweet(4)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://s1.eestatic.com/2017/05/02/cultura/libros/harry_potter-j-k-_rowling-novela_212989964_33661586_854x640.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Severus Snape</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton5" onclick="alertSweet(5)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://i.pinimg.com/736x/1e/1e/0e/1e1e0e29ba6dfb474995f7a18839fbdb.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Draco Malfoy</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton6" onclick="alertSweet(6)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-5 mb-5">
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://elcomercio.pe/resizer/Y2X_dZaDBp3A117HO50ZIRyxTTI=/1200x900/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/A6IE3S2J2VFC7NKB6ZM34OXWVM.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">&nbspLord Voldemort&nbsp</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton7" onclick="alertSweet(7)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://img.vixdata.io/pd/jpg-large/es/sites/default/files/r/rubeus_hagrid_harry_potter.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Hagrid</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton8" onclick="alertSweet(8)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="http://pm1.narvii.com/6210/c997a43ce1af464a6e8000b8387e29c73bc78bad_00.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Bellatrix Lestrange</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton9" onclick="alertSweet(9)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+                <div class="col-md-3 d-flex justify-content-center">
+                    <div class="flip-card ">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img class="imagenRecortar" src="https://pm1.narvii.com/6843/da6dcdbd14c21e1f1bfec7bc3bc7cf458ff1a289v2_hq.jpg
+                        " alt="Avatar">
+                                <div class="contenedorPuntaje">
+                                    <p class="puntajeCarta">3</p>
+                                    <i class="lni lni-star-filled estrellaPuntos"></i>
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <h1 style="font-size: 20px;">Sirius Black</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" d-flex align-items-center">
+                        <button id="boton10" onclick="alertSweet(10)" type="button" class="btn btn-outline-secondary"
+                            style="transform: scale(0.7);">Comprar</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script>
+        const arrayCromosOliver = <%- JSON.stringify(arrayCromosOliver) %>;
+        const arrayCromosHarry = <%- JSON.stringify(arrayCromosHarry) %>;
+
+        var arrayNombres = [];
+        var arrayImagenes = [];
+        var arrayPuntajes = [];
+
+        var uniqueArrayNombres = [];
+        var uniqueArrayImagenes = [];
+
+        for (let i = 0; i < arrayCromosOliver.length; i++) {
+            var nombreCromo = arrayCromosOliver[i].name;
+            var imagenCromo = arrayCromosOliver[i].imagen;
+            var puntosCromo = arrayCromosOliver[i].puntos;
+
+
+            arrayNombres.push(nombreCromo);
+            arrayImagenes.push(imagenCromo);
+
+            if ((i + 1) % 5 == 0) {
+                arrayPuntajes.push(puntosCromo);
+            }
+        }
+        console.log("PUNTAJES OLIVER "+arrayPuntajes)
+
+        uniqueArrayNombres = arrayNombres.filter(function (item, pos) {
+            return arrayNombres.indexOf(item) == pos;
+        })
+        uniqueArrayImagenes = arrayImagenes.filter(function (item, pos) {
+            return arrayImagenes.indexOf(item) == pos;
+        })
+
+
+        //insertar imagenes de los cromos
+        var elementosCromosImages = document.getElementsByClassName("imagenRecortar");
+        for (let i = 0; i < elementosCromosImages.length; i++) {
+            elementosCromosImages[i].src = uniqueArrayImagenes[i];
+        }
+
+        //este array va a tener 11 elementos en vez de 10 , pero se arregla en el for de debajo
+        var elementosCromosNombres = document.getElementsByTagName("h1");
+        for (let i = 1; i < elementosCromosNombres.length + 1; i++) {
+            if (elementosCromosNombres[i] != undefined) {
+                elementosCromosNombres[i].innerHTML = uniqueArrayNombres[i - 1];
+            }
+        }
+
+        //insertar el puntaje de los cromos
+
+        var elementosCromosPuntos = document.getElementsByTagName("p");
+        console.log(arrayPuntajes)
+        for (let i = 0; i < elementosCromosPuntos.length; i++) {
+            if (elementosCromosPuntos[i] != undefined) {
+                elementosCromosPuntos[i].innerHTML = arrayPuntajes[i];
+            }
+        }
+
+        function cambiarCromos() {
+            let aux = document.getElementsByClassName("imagenRecortar");
+
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                asignarCromosHarry();
+            } else {
+                location.reload();
+            }
+
+        }
+
+        function asignarCromosHarry() {
+            var arrayNombres = [];
+            var arrayImagenes = [];
+            var arrayPuntajes = [];
+
+            for (let i = 0; i < arrayCromosHarry.length; i++) {
+                var nombreCromo = arrayCromosHarry[i].name;
+                var imagenCromo = arrayCromosHarry[i].imagen;
+                var puntosCromo = arrayCromosHarry[i].puntos;
+
+                arrayNombres.push(nombreCromo);
+                arrayImagenes.push(imagenCromo);
+
+                if ((i + 1) % 5 == 0) {
+                    arrayPuntajes.push(puntosCromo);
+                }
+
+            }
+
+            uniqueArrayNombres = arrayNombres.filter(function (item, pos) {
+                return arrayNombres.indexOf(item) == pos;
+            })
+            uniqueArrayImagenes = arrayImagenes.filter(function (item, pos) {
+                return arrayImagenes.indexOf(item) == pos;
+            })
+
+
+            //insertar imagenes de los cromos
+            var elementosCromosImages = document.getElementsByClassName("imagenRecortar");
+            for (let i = 0; i < elementosCromosImages.length; i++) {
+                elementosCromosImages[i].src = uniqueArrayImagenes[i];
+            }
+
+            //este array va a dar como resultado 11 elementos en vez de 10 , pero se arregla en el for de debajo
+            var elementosCromosNombres = document.getElementsByTagName("h1");
+
+            for (let i = 1; i < elementosCromosNombres.length + 1; i++) {
+                if (elementosCromosNombres[i] != undefined) {
+                    elementosCromosNombres[i].innerHTML = uniqueArrayNombres[i - 1];
+                }
+            }
+
+            //insertar el puntaje de los cromos
+
+            var elementosCromosPuntos = document.getElementsByTagName("p");
+
+            for (let i = 0; i < elementosCromosPuntos.length; i++) {
+                if (elementosCromosPuntos[i] != undefined) {
+                    elementosCromosPuntos[i].innerHTML = arrayPuntajes[i];
+                }
+            }
+        }
+
+    </script>
+
+
+    <script>
+
+
+        const storage = window.localStorage;
+
+        //conseguir nombre de usuario en comprarCromos
+        var sesionNombreUsuario = "";
+        for (var i = 0, len = storage.length; i < storage.length; i++) {
+            var key = storage.key(i);
+            var value = storage[key];
+            if (key.includes('soy')) {
+                sesionNombreUsuario = value;
+            }
+        }
+
+        //borrar las cookies aux al entrar a comprar
+        for (var i = 0, len = storage.length; i < storage.length; i++) {
+            var key = storage.key(i);
+            var value = storage[key];
+            if (key.includes('aux')) {
+                storage.removeItem(`aux${sesionNombreUsuario}`);
+            }
+
+        }
+
+        //para que no se resetee el valor del item al salir de la pagina
+        var existe = storage.getItem(`restantesOliver1`);
+        if (existe != null) {
+            console.log("Ya existe el item")
+        } else {
+            for (let i = 1; i < 11; i++) {
+                storage.setItem(`restantesOliver${i}`, "5")
+                storage.setItem(`restantesHarry${i}`, "5")
+            }
+        }
+
+        //comprobar al abrir la página si hay algún botón que necesite disabled
+        for (let i = 1; i < 11; i++) {
+
+
+            var aux = document.getElementsByClassName("imagenRecortar");
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                if (storage.getItem(`botonDisabledOliver${i}`) == null) {
+                    document.getElementById(`boton${i}`).disabled = false;
+                }
+            } else {
+                if (storage.getItem(`botonDisabledHarry${i}`) == null) {
+                    document.getElementById(`boton${i}`).disabled = false;
+                }
+            }
+
+        }
+
+
+        //funciones alerta y funcionalidades cuando se comprar un cromo
+        function alertSweet(num) {
+
+            var aux = document.getElementsByClassName("imagenRecortar");
+
+            //buscar el item de nuestro localStorage
+            var numRestantesCromos;
+
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                numRestantesCromos = storage.getItem(`restantesOliver${num}`);
+            } else {
+                numRestantesCromos = storage.getItem(`restantesHarry${num}`);
+            }
+
+            if (numRestantesCromos > 0) {
+                Swal.fire({
+                    title: '¿Está seguro de realizar la compra?',
+                    text: `¡Queda/n solo ${numRestantesCromos} cromo/s como este!`,
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, estoy seguro'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            showConfirmButton: false,
+                            title:'¿Compra realizada!',
+                            text:'Su cromo ha sido añadido a su colección',
+                            icon:'success'
+                        })
+                        restarCromo(num, numRestantesCromos);
+                        restarPuntos(num);
+                        desabilitarBotonSiCero(num, numRestantesCromos);
+                        añadirCromoColeccion(num);
+                        setTimeout(function(){location.reload()}, 1500);
+                    }
+                })
+            }
+        }
+
+
+        function restarCromo(num, numRestantesCromos) {
+            var aux = document.getElementsByClassName("imagenRecortar");
+
+            console.log("hola buenas lo he comprado porfa")
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                var aux = numRestantesCromos - 1;
+                storage.setItem(`restantesOliver${num}`, `${aux}`);
+            } else {
+                console.log("gracias porfa")
+
+                var aux = numRestantesCromos - 1;
+                storage.setItem(`restantesHarry${num}`, `${aux}`);
+            }
+        }
+
+        function restarPuntos(num) {
+
+            var arrayUsuarios = "";
+
+            for (var i = 0, len = localStorage.length; i < len; i++) {
+                var key = localStorage.key(i);
+                var value = localStorage[key];
+
+                if (key.includes('puntos')) {
+                    arrayUsuarios=key;
+                }
+            }
+
+            var arrayPuntajes = [];
+            let aux = document.getElementsByClassName("imagenRecortar");
+
+            for (let i = 0; i < arrayCromosHarry.length; i++) {
+                if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                    var nombreCromo = arrayCromosOliver[i].name;
+                    var imagenCromo = arrayCromosOliver[i].imagen;
+                    var puntosCromo = arrayCromosOliver[i].puntos;
+
+                } else {
+                    var nombreCromo = arrayCromosHarry[i].name;
+                    var imagenCromo = arrayCromosHarry[i].imagen;
+                    var puntosCromo = arrayCromosHarry[i].puntos;
+                }
+                arrayNombres.push(nombreCromo);
+                arrayImagenes.push(imagenCromo);
+
+                if ((i + 1) % 5 == 0) {
+                    arrayPuntajes.push(puntosCromo);
+                }
+
+            }
+            var element = arrayUsuarios;
+            var auxPuntos = storage.getItem(`${element}`);
+            if(auxPuntos<arrayPuntajes[num - 1]){
+                Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo ha ido mal. No tienes los puntos necesarios para realizar esta compra.',
+                })
+            }else{
+                var resultadoPuntos = auxPuntos - arrayPuntajes[num - 1];
+                storage.setItem(`${element}`, `${resultadoPuntos}`);
+            }
+
+            
+
+        }
+
+        //contar los cromos que hay comprados y sean distintos
+        function añadirCromoColeccion(num){
+            //los botones comprar empiezan por el 1
+            let aux = document.getElementsByClassName("imagenRecortar");
+
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                storage.setItem(`cromoSesion${sesionNombreUsuario}Oliver${num}`,true);
+            } else {
+                storage.setItem(`cromoSesion${sesionNombreUsuario}Harry${num}`,true);
+
+            }
+        }
+
+
+        function desabilitarBotonSiCero(num, numRestantesCromos) {
+            var aux = document.getElementsByClassName("imagenRecortar");
+            if (aux[1].src == "https://media.revistagq.com/photos/5e7212ac9da1570008d603e5/master/w_1600%2Cc_limit/benji-price-campeones-serie.jpg") {
+                if (numRestantesCromos <= 1) {
+                    storage.setItem(`botonDisabledOliver${num}`, "true");
+                    document.getElementById(`boton${num}`).disabled = true;
+                }
+            } else {
+                if (numRestantesCromos <= 1) {
+                    storage.setItem(`botonDisabledHarry${num}`, "true");
+                    document.getElementById(`boton${num}`).disabled = true;
+                }
+            }
+
+        }
+
+
+
+
+        //escribir puntos arriba
+        var itemPuntos = "";
+        let elementoPuntos = document.getElementById("mostrarPuntosPantalla");
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage[key];
+
+            if (key.includes('puntos')) {
+                itemPuntos=key;
+            }
+        }
+        let valorPuntos=storage.getItem(`${itemPuntos}`);
+        console.log(valorPuntos)
+        elementoPuntos.innerHTML="Puntos restantes: "+valorPuntos;
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

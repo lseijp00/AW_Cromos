@@ -1,0 +1,107 @@
+body {
+    background: url("/images/1.png");
+    font-family: "Gilroy-Regular", sans-serif;
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    margin: 0;
+    color: black;
+}
+
+#registrarseRedirect {
+    color: black;
+    text-decoration: none;
+}
+
+#registrarseRedirect:hover {
+    color: rgb(0, 172, 238);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.container {
+    color: black;
+    font-family: "Gilroy-Regular", sans-serif;
+    display: flex;
+    min-width: 90vw;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    margin-right: 10rem;
+    
+}
+
+.centrarItems {
+    text-align: center;
+}
+
+.contenedorFormulario {
+    margin-top: 3rem;
+    transform: scale(1.1);
+    background-color: rgba(240, 211, 206, 0.6);
+    padding: 1.5rem;
+    border-radius: 4rem;
+    transition:0.3s;
+}
+
+.contenedorFormulario:hover {
+    background-color: rgb(241, 192, 183, 1);
+
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    padding:5px;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: -moz-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: -o-linear-gradient(#28D2DE 0%, #1A878F 100%);
+    background-image: linear-gradient(#28D2DE 0%, #1A878F 100%);
+    color: #FFF;
+    text-transform: uppercase;
+    text-shadow: #000 0px 1px 5px;
+    border: 1px solid #000;
+    opacity: 0.7;
+    margin-left: 2rem;
+    -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.7);
+}
+
+input:focus {
+    background: rgba(124, 35, 35, 0.3);
+}
+
+input[type="submit"]:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.footerContainer{
+    justify-content: flex-end;
+    height: 40vh;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    align-items: flex-end;
+
+}
+
+.contenedorPublicidad{
+    padding:1rem;
+}
+    .contenedorPublicidad i{
+        font-size:50px;
+        margin-right: 1rem;
+        color:black
+    }
+
+.quitarSubrayadoTwitter:hover{
+    color:rgb(0, 172, 238);
+    text-decoration: none;
+}
+.quitarSubrayadoGithub:hover{
+    color:rgb(110, 84, 148);
+    text-decoration: none;
+}
